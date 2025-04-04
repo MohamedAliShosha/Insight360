@@ -1,60 +1,119 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/constants.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
+  _SplashViewState createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+    navigateToHomeView();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+
+    slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 2), // Start from bottom
+      end: Offset.zero, // Move to normal position
+    ).animate(animationController);
+
+    animationController.forward();
+  }
+
+  void navigateToHomeView() {
+    Future.delayed(
+      const Duration(seconds: 5),
+      () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SignUp()),
+        );
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SplashViewBody(),
+    return Scaffold(
+      body: SplashViewBody(slidingAnimation: slidingAnimation),
     );
   }
 }
 
 class SplashViewBody extends StatelessWidget {
-  const SplashViewBody({super.key});
+  final Animation<Offset> slidingAnimation;
+
+  const SplashViewBody({super.key, required this.slidingAnimation});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryBlue,
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'Assets/Images/logo 1 (1).png',
-              width: 120, // Adjust size as needed
-              height: 120,
-              fit: BoxFit.contain,
-            ),
-            // const SizedBox(width: 8), // Space between logo and text
-            RichText(
-              text: TextSpan(
+        child: AnimatedBuilder(
+          animation: slidingAnimation,
+          builder: (context, child) {
+            return SlideTransition(
+              position: slidingAnimation,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextSpan(
-                    text: 'INSIGHT ',
-                    style: GoogleFonts.inter(
-                      fontSize: 31,
-                      fontWeight: FontWeight.w600,
-                      color: kOrange,
-                    ),
+                  Image.asset(
+                    'Assets/Images/logo 1 (1).png',
+                    width: 120,
+                    height: 120,
+                    fit: BoxFit.contain,
                   ),
-                  // Text span is
-                  TextSpan(
-                    text: '360°',
-                    style: GoogleFonts.inter(
-                      fontSize: 31,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white, // Adjusted to match design
+                  const SizedBox(width: 8),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'INSIGHT ',
+                          style: GoogleFonts.inter(
+                            fontSize: 31,
+                            fontWeight: FontWeight.w600,
+                            color: kOrange,
+                          ),
+                        ),
+                        TextSpan(
+                          text: '360°',
+                          style: GoogleFonts.inter(
+                            fontSize: 31,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
