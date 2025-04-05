@@ -4,8 +4,8 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_button.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:news_app/constants.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({
+class SignInViewBody extends StatelessWidget {
+  const SignInViewBody({
     super.key,
   });
 
