@@ -49,7 +49,7 @@ class _SplashViewState extends State<SplashView>
         Navigator.pushReplacement(
           // ignore: use_build_context_synchronously
           context,
-          MaterialPageRoute(builder: (context) => const SignInView()),
+          MaterialPageRoute(builder: (context) => const LoginView()),
         );
       },
     );
