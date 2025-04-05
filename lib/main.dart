@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/Features/splash/presentation/views/splash_view.dart';
 
 class NewsApp extends StatelessWidget {
@@ -6,9 +7,12 @@ class NewsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: GoogleFonts.inter().fontFamily,
+      ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: const Scaffold(
         body: SplashView(),
       ),
     );

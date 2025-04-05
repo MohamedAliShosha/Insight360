@@ -34,7 +34,7 @@ class SplashViewBody extends StatelessWidget {
                           text: 'INSIGHT ',
                           style: GoogleFonts.inter(
                             fontSize: 31,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                             color: kOrange,
                           ),
                         ),
@@ -42,7 +42,7 @@ class SplashViewBody extends StatelessWidget {
                           text: '360°',
                           style: GoogleFonts.inter(
                             fontSize: 31,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
