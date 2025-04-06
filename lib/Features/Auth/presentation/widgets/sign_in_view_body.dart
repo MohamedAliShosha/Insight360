@@ -2,12 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/media_report_radio_button.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/visitor_radio_button.dart';
 import 'package:news_app/constants.dart';
 
-class SignInViewBody extends StatelessWidget {
+class SignInViewBody extends StatefulWidget {
+  // Changed to StatefulWidget
   const SignInViewBody({
     super.key,
   });
+
+  @override
+  State<SignInViewBody> createState() => _SignInViewBodyState();
+}
+
+class _SignInViewBodyState extends State<SignInViewBody> {
+  // Use a string to track the selected option
+  String? _selectedUserType; // Nullable to allow no selection
 
   @override
   Widget build(BuildContext context) {
@@ -91,43 +102,31 @@ class SignInViewBody extends StatelessWidget {
                   ),
                 ],
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircleAvatar(
-                    radius: 12,
-                    backgroundColor: kPrimaryBlue,
-                    child: CircleAvatar(
-                      radius: 10,
-                      backgroundColor: kWhite,
-                    ),
+                  // Media Reporter radio button
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedUserType =
+                            "mediaReporter"; // Set the selected user type to "mediaReporter"
+                      });
+                    },
+                    child: MediaReportRadioButton(
+                        selectedUserType: _selectedUserType),
                   ),
-                  SizedBox(width: 8),
-                  Text(
-                    'Media Reporter',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: kPrimaryBlue,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(width: 30),
-                  CircleAvatar(
-                    radius: 12,
-                    backgroundColor: kPrimaryBlue,
-                    child: CircleAvatar(
-                      radius: 10,
-                      backgroundColor: kWhite,
-                    ),
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    'Visitor',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: kPrimaryBlue,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  const SizedBox(width: 30),
+
+                  // Visitor radio button
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedUserType = "visitor";
+                      });
+                    },
+                    child: VistitorRadioButton(
+                        selectedUserType: _selectedUserType),
                   ),
                 ],
               ),
