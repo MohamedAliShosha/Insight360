@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_button.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/custom_button_with_image.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/media_report_radio_button.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/visitor_radio_button.dart';
 import 'package:news_app/constants.dart';
 
-class SignInViewBody extends StatefulWidget {
+class SignUpViewBody extends StatefulWidget {
   // Changed to StatefulWidget
-  const SignInViewBody({
+  const SignUpViewBody({
     super.key,
   });
 
   @override
-  State<SignInViewBody> createState() => _SignInViewBodyState();
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
 }
 
-class _SignInViewBodyState extends State<SignInViewBody> {
+class _SignUpViewBodyState extends State<SignUpViewBody> {
   // Use a string to track the selected option
   String? _selectedUserType; // Nullable to allow no selection
 
@@ -30,6 +32,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -41,28 +44,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     fit: BoxFit.contain,
                   ),
                   const SizedBox(width: 0),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'INSIGHT ',
-                          style: GoogleFonts.inter(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: kOrange,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '360°',
-                          style: GoogleFonts.inter(
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: kPrimaryBlue,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const CustomRichText(),
                 ],
               ),
               const CustomTextField(
@@ -133,52 +115,50 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              CustomButton(
+              const CustomButtonWithoutImage(
+                textColor: kWhite,
+                containerColor: kPrimaryBlue,
+                leftPadding: 70,
+                rightPadding: 70,
                 text: 'Sign Up',
               ),
               const SizedBox(
                 height: 16,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Row(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start, // Align items to top
-                        children: [
-                          Text(
-                            '_____________',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                              height: 1, // Tweak spacing
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          Text(
-                            'Or sign in with',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: kLightGrey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          Text(
-                            '_____________',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.grey,
-                              height: 1,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )
-                ],
+              const CustomDivider(),
+              const SizedBox(
+                height: 16,
+              ),
+              const CustomButtonWithOutImage(
+                imagePath: 'Assets/Images/google.png',
+                leftPadding: 10,
+                rightPadding: 10,
+                textColor: kWhite,
+                text: 'Continue with Google',
+                containerColor: kPrimaryBlue,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const CustomButtonWithOutImage(
+                imagePath: 'Assets/Images/facebook.png',
+                leftPadding: 10,
+                rightPadding: 10,
+                textColor: kWhite,
+                text: 'Continue with Facebook',
+                containerColor: kPrimaryBlue,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const Text(
+                textAlign: TextAlign.center,
+                'By Signing up to Insight 360, you are accepting our Terms & Conditions',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: kBlack,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
