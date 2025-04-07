@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_with_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/media_report_radio_button.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/visitor_radio_button.dart';
 import 'package:news_app/constants.dart';
 
-class SignUpViewBody extends StatefulWidget {
-  // Changed to StatefulWidget
-  const SignUpViewBody({
-    super.key,
-  });
-
-  @override
-  State<SignUpViewBody> createState() => _SignUpViewBodyState();
-}
-
-class _SignUpViewBodyState extends State<SignUpViewBody> {
-  // Use a string to track the selected option
-  String? _selectedUserType; // Nullable to allow no selection
+class SignInViewBody extends StatelessWidget {
+  const SignInViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,74 +48,34 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               const CustomTextField(
-                hintText: 'Phone Number',
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              const CustomTextField(
                 isObscure: true,
+                // suffixIcon: Icon(Icons.visibility_off),
                 hintText: 'Password',
               ),
               const SizedBox(
-                height: 16,
+                height: 24,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'I am a',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: kLightGrey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Media Reporter radio button
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedUserType =
-                            "mediaReporter"; // Set the selected user type to "mediaReporter"
-                      });
-                    },
-                    child: MediaReportRadioButton(
-                        selectedUserType: _selectedUserType),
-                  ),
-                  const SizedBox(width: 30),
-
-                  // Visitor radio button
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedUserType = "visitor";
-                      });
-                    },
-                    child: VistitorRadioButton(
-                        selectedUserType: _selectedUserType),
-                  ),
-                ],
-              ),
+              const Text('Forget Password?',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: kBlack,
+                    fontWeight: FontWeight.bold,
+                  )),
               const SizedBox(
-                height: 16,
+                height: 24,
               ),
               const CustomButtonWithoutImage(
                 textColor: kWhite,
                 containerColor: kPrimaryBlue,
                 leftPadding: 70,
                 rightPadding: 70,
-                text: 'Sign Up',
+                text: 'Sign In',
               ),
               const SizedBox(
                 height: 16,
               ),
               const CustomDivider(
-                signUpOrSignIn: 'or sign up with',
+                signUpOrSignIn: 'or sign in with',
               ),
               const SizedBox(
                 height: 16,
@@ -154,14 +102,37 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              const Text(
-                textAlign: TextAlign.center,
-                'By Signing up to Insight 360, you are accepting our Terms & Conditions',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: kBlack,
-                  fontWeight: FontWeight.w500,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    textAlign: TextAlign.center,
+                    'Don\'t have an account? ',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: kLightGrey,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpView(),
+                          ));
+                    },
+                    child: const Text(
+                      textAlign: TextAlign.center,
+                      'Register',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: kBlack,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

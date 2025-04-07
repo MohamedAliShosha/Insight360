@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
+import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/splash/presentation/widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
@@ -49,7 +49,7 @@ class _SplashViewState extends State<SplashView>
         Navigator.pushReplacement(
           // ignore: use_build_context_synchronously
           context,
-          MaterialPageRoute(builder: (context) => const SignUpView()),
+          MaterialPageRoute(builder: (context) => const SignInView()),
         );
       },
     );

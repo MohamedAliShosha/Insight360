@@ -1,19 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
+    this.isObscure = false,
   });
 
   final String hintText;
+  final bool isObscure; // To hold an initial value for the password visibility
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  late bool _isObscure; // will used to toggle the password visibility
+
+  @override
+  void initState() {
+    super.initState();
+    _isObscure = widget
+        .isObscure; // if widget.isObscure is true, _isObscure will be true and vice versa now it has an initial value = false
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: _isObscure,
       decoration: InputDecoration(
-        hintText: hintText,
+        suffixIcon: widget.isObscure // Check if the field is a password field
+            ? IconButton(
+                icon: Icon(
+                  _isObscure
+                      ? Icons.visibility_off
+                      : Icons
+                          .visibility, // If the field is a password field, toggle the password visibility
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure;
+                  });
+                },
+              )
+            : null,
+        suffixIconColor: kBlack,
+        hintText: widget.hintText,
         hintStyle: const TextStyle(
           color: kLightGrey,
           fontSize: 15,

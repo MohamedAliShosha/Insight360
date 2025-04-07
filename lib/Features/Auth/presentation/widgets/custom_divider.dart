@@ -4,11 +4,14 @@ import 'package:news_app/constants.dart';
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
     super.key,
+    required this.signUpOrSignIn,
   });
+
+  final String signUpOrSignIn;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
@@ -17,7 +20,7 @@ class CustomDivider extends StatelessWidget {
               crossAxisAlignment:
                   CrossAxisAlignment.start, // Align items to top
               children: [
-                Text(
+                const Text(
                   '_____________',
                   style: TextStyle(
                     fontSize: 15,
@@ -25,17 +28,17 @@ class CustomDivider extends StatelessWidget {
                     height: 1, // Tweak spacing
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text(
-                  'Or sign in with',
-                  style: TextStyle(
+                  signUpOrSignIn,
+                  style: const TextStyle(
                     fontSize: 15,
                     color: kLightGrey,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 8),
-                Text(
+                const SizedBox(width: 8),
+                const Text(
                   '_____________',
                   style: TextStyle(
                     fontSize: 15,
