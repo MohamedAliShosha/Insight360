@@ -115,6 +115,7 @@ class SignInViewBody extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    // I need to manage the navigation using Routing
                     onTap: () {
                       Navigator.push(
                           context,
