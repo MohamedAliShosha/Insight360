@@ -1,60 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/constants.dart';
+import 'package:go_router/go_router.dart';
 
-class SplashViewBody extends StatelessWidget {
-  final Animation<Offset> slidingAnimation;
+import 'package:news_app/Features/splash/presentation/widgets/sliding_animated_logo.dart';
 
-  const SplashViewBody({super.key, required this.slidingAnimation});
+import 'package:news_app/core/utils/app_router.dart';
+
+class SplashViewBody extends StatefulWidget {
+  const SplashViewBody({super.key});
+
+  @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    initSlidingAnimation();
+    navigateToSignInView();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kPrimaryBlue,
-      body: Center(
-        child: AnimatedBuilder(
-          animation: slidingAnimation,
-          builder: (context, child) {
-            return SlideTransition(
-              position: slidingAnimation,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'Assets/Images/logo 1 (1).png',
-                    width: 120,
-                    height: 120,
-                    fit: BoxFit.contain,
-                  ),
-                  const SizedBox(width: 8),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'INSIGHT ',
-                          style: GoogleFonts.inter(
-                            fontSize: 31,
-                            fontWeight: FontWeight.bold,
-                            color: kOrange,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '360°',
-                          style: GoogleFonts.inter(
-                            fontSize: 31,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SlidingAnimatedLogoText(slidingAnimation: slidingAnimation),
+      ],
+    );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+
+    slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 2),
+      end: Offset.zero,
+    ).animate(animationController);
+
+    animationController.forward();
+  }
+
+  void navigateToSignInView() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        GoRouter.of(context).push(AppRouter.kSignInView);
+      },
     );
   }
 }

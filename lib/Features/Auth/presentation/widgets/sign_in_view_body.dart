@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_with_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/app_router.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -117,11 +118,7 @@ class SignInViewBody extends StatelessWidget {
                   GestureDetector(
                     // I need to manage the navigation using Routing
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpView(),
-                          ));
+                      GoRouter.of(context).push(AppRouter.kSignUpView);
                     },
                     child: const Text(
                       textAlign: TextAlign.center,
