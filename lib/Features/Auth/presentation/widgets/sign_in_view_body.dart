@@ -65,12 +65,17 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              const CustomButtonWithoutImage(
-                textColor: kWhite,
-                containerColor: kPrimaryBlue,
-                leftPadding: 70,
-                rightPadding: 70,
-                text: 'Sign In',
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kHomeView);
+                },
+                child: const CustomButtonWithoutImage(
+                  textColor: kWhite,
+                  containerColor: kPrimaryBlue,
+                  leftPadding: 70,
+                  rightPadding: 70,
+                  text: 'Sign In',
+                ),
               ),
               const SizedBox(
                 height: 16,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_with_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
@@ -7,6 +8,7 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.da
 import 'package:news_app/Features/Auth/presentation/widgets/media_report_radio_button.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/visitor_radio_button.dart';
 import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/app_router.dart';
 
 class SignUpViewBody extends StatefulWidget {
   // Changed to StatefulWidget
@@ -116,12 +118,17 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              const CustomButtonWithoutImage(
-                textColor: kWhite,
-                containerColor: kPrimaryBlue,
-                leftPadding: 70,
-                rightPadding: 70,
-                text: 'Sign Up',
+              GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kHomeView);
+                },
+                child: const CustomButtonWithoutImage(
+                  textColor: kWhite,
+                  containerColor: kPrimaryBlue,
+                  leftPadding: 70,
+                  rightPadding: 70,
+                  text: 'Sign Up',
+                ),
               ),
               const SizedBox(
                 height: 16,
