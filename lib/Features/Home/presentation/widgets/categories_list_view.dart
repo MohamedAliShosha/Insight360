@@ -45,7 +45,7 @@ class CategoriesListView extends StatelessWidget {
     return SizedBox(
       // Give a specified size to the ListView
       height:
-          85, // Should be the same height of the Category Card item that i have created
+          200, // Should be the same height of the Category Card item that i have created
 
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

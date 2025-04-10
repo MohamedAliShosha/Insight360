@@ -6,22 +6,24 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            // لو كنت حطيت كولمن وحطيت فيه نيوز ليست فيو وال كاتيجوري ليست فيو كان هيظهر اكسبشن لان النيوز ليست فيو بتاكسباند ودا مينفعش يحصل جوا الكولوم
-            SliverToBoxAdapter(
-              child: CategoriesListView(),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 32,
+    return const SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: CustomScrollView(
+            physics: BouncingScrollPhysics(),
+            slivers: [
+              // لو كنت حطيت كولمن وحطيت فيه نيوز ليست فيو وال كاتيجوري ليست فيو كان هيظهر اكسبشن لان النيوز ليست فيو بتاكسباند ودا مينفعش يحصل جوا الكولوم
+              SliverToBoxAdapter(
+                child: CategoriesListView(),
               ),
-            ),
-          ],
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 32,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -18,14 +18,14 @@ class CategoryCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           image: const DecorationImage(
               image: AssetImage(
-                'Assets/Images/business.avif',
+                'Assets/Images/science.avif',
               ),
               fit: BoxFit.fill),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
-            'Business',
-            style: TextStyle(
+            categoryModel.categoryName,
+            style: const TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
