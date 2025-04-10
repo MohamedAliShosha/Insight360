@@ -1,53 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:news_app/Features/Home/presentation/widgets/categories_list_view.dart';
 
-class HomeViewBody extends StatefulWidget {
+class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
-}
-
-class _HomeViewBodyState extends State<HomeViewBody> {
-  int currentIndex = 0; // Current index of the bottom navigation bar
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: currentIndex, // Now equals zero
-        onTap: (index) {
-          setState(() {
-            currentIndex = index; // يتم تحديث العنصر المحدد فقط
-          });
-        },
-        items: [
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.home),
-            title: const Text("Home"),
-            selectedColor: kTeal,
-          ),
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.search),
-            title: const Text("Search"),
-            selectedColor: Colors.purple,
-          ),
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.bookmark_border),
-            title: const Text("Save"),
-            selectedColor: Colors.green,
-          ),
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.person),
-            title: const Text("Account"),
-            selectedColor: Colors.blue,
-          ),
-        ],
-      ),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            // لو كنت حطيت كولمن وحطيت فيه نيوز ليست فيو وال كاتيجوري ليست فيو كان هيظهر اكسبشن لان النيوز ليست فيو بتاكسباند ودا مينفعش يحصل جوا الكولوم
+            SliverToBoxAdapter(
+              child: CategoriesListView(),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 32,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
