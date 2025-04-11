@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
+import 'package:news_app/core/utils/app_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,9 +17,13 @@ class HomeViewBody extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.only(bottom: 16),
-                    child: NewsItem(),
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: GestureDetector(
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kNewsDetailsView);
+                        },
+                        child: const NewsItem()),
                   );
                 },
               ),
