@@ -28,13 +28,24 @@ class NewsItem extends StatelessWidget {
           width: 12,
         ),
         const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Business',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
+              ),
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Text(
+              '4/12/2023',
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                color: Colors.grey,
               ),
             ),
             SizedBox(
