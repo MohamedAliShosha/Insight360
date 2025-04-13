@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
+
 import 'package:news_app/core/utils/app_router.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,9 +11,13 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
+        
+        body: 
+        
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
