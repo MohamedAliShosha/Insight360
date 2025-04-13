@@ -17,9 +17,9 @@ class NewsDetailsViewBody extends StatelessWidget {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * .4,
                 child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Image(
-                    image: AssetImage('Assets/Images/facebook.png'),
+                    image: AssetImage('Assets/Images/health.png'),
                   ),
                 ),
               ),
