@@ -3,6 +3,7 @@ import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
+
 import 'package:news_app/Features/splash/presentation/views/splash_view.dart';
 
 // abstract class is used to create a base class that cannot be instantiated directly
@@ -41,6 +42,7 @@ abstract class AppRouter {
             kNewsDetailsView, // The path that will be used to navigate to the home screen
         builder: (context, state) => const NewsDetailsView(),
       ),
+     
     ],
   );
 }
