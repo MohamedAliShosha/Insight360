@@ -16,10 +16,9 @@ class NewsDetailsViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 50),
             child: SizedBox(
               height: MediaQuery.of(context).size.height * .4,
-              child:  Padding(
+              child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Container(
-                  
                   height: 420,
                   width: 431,
                   decoration: const BoxDecoration(
@@ -47,7 +46,10 @@ class NewsDetailsViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Text(
               'April 12, 2022',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 13.25, color: kLightGrey),
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13.25,
+                  color: kLightGrey),
             ),
           ),
           const Padding(
