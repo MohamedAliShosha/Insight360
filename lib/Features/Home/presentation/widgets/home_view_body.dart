@@ -15,6 +15,7 @@ class HomeViewBody extends StatelessWidget {
         body: 
         
         Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             
