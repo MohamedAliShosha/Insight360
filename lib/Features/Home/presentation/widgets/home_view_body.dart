@@ -13,42 +13,38 @@ class HomeViewBody extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white.withOpacity(0.5),
-            backgroundColor: ColorsManager.kPrimaryBlue,
-            currentIndex: 0,
-            // onTap: (int index) {
-            //   if (index == 0) {
-            //     GoRouter.of(context).go(AppRouter.kHomeView);
-            //   } else if (index == 1) {
-            //     GoRouter.of(context).go(AppRouter.kSearchView);
-            //   } else if (index == 2) {
-            //     GoRouter.of(context).go(AppRouter.kProfileView);
-            //   }
-            // },
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.white,
-                ),
-                label: 'Home',
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          backgroundColor: ColorsManager.kPrimaryBlue,
+          items: [
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kSearchView);
+                },
+                child: const Icon(
                   Icons.search,
                   color: Colors.white,
                 ),
-                label: 'Search',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                label: 'Profile',
+              label: 'Search',
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
               ),
-            ]),
+              label: 'Profile',
+            ),
+          ],
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
