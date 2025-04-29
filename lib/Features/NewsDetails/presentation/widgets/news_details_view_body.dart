@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class NewsDetailsViewBody extends StatelessWidget {
   const NewsDetailsViewBody({super.key});
@@ -49,7 +49,7 @@ class NewsDetailsViewBody extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 13.25,
-                  color: kLightGrey),
+                  color: ColorsManager.kLightGrey),
             ),
           ),
           const Padding(

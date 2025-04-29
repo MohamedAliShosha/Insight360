@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText({
@@ -19,7 +19,7 @@ class CustomRichText extends StatelessWidget {
             style: GoogleFonts.inter(
               fontSize: 23,
               fontWeight: FontWeight.bold,
-              color: kOrange,
+              color: ColorsManager.kOrange,
             ),
           ),
           TextSpan(
@@ -27,7 +27,7 @@ class CustomRichText extends StatelessWidget {
             style: GoogleFonts.inter(
               fontSize: 23,
               fontWeight: FontWeight.bold,
-              color: kPrimaryBlue,
+              color: ColorsManager.kPrimaryBlue,
             ),
           ),
         ],

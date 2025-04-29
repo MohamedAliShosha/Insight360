@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
@@ -33,7 +33,7 @@ class CustomDivider extends StatelessWidget {
                   signUpOrSignIn,
                   style: const TextStyle(
                     fontSize: 15,
-                    color: kLightGrey,
+                    color: ColorsManager.kLightGrey,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

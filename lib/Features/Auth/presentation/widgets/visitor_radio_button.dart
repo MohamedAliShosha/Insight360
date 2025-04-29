@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class VistitorRadioButton extends StatelessWidget {
   const VistitorRadioButton({
@@ -15,17 +16,17 @@ class VistitorRadioButton extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 12,
-          backgroundColor: kPrimaryBlue,
+          backgroundColor: ColorsManager.kPrimaryBlue,
           child: CircleAvatar(
             radius: 10,
-            backgroundColor: kWhite,
+            backgroundColor: ColorsManager.kWhite,
             child: _selectedUserType == "visitor"
                 ? Container(
                     width: 12,
                     height: 12,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: kPrimaryBlue,
+                      color: ColorsManager.kPrimaryBlue,
                     ),
                   )
                 : null,
@@ -36,7 +37,7 @@ class VistitorRadioButton extends StatelessWidget {
           'Visitor',
           style: TextStyle(
             fontSize: 15,
-            color: kPrimaryBlue,
+            color: ColorsManager.kPrimaryBlue,
             fontWeight: FontWeight.w500,
           ),
         ),

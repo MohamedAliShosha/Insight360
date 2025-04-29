@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -45,21 +45,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 },
               )
             : null,
-        suffixIconColor: kBlack,
+        suffixIconColor: ColorsManager.kBlack,
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-          color: kLightGrey,
+          color: ColorsManager.kLightGrey,
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: kLightGrey,
+            color: ColorsManager.kLightGrey,
           ),
         ),
         focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(
-            color: kLightGrey,
+            color: ColorsManager.kLightGrey,
           ),
         ),
       ),

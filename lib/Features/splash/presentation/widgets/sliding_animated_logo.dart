@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class SlidingAnimatedLogoText extends StatelessWidget {
   const SlidingAnimatedLogoText({
@@ -42,7 +42,7 @@ class SlidingAnimatedLogoText extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 31,
                         fontWeight: FontWeight.bold,
-                        color: kWhite,
+                        color: ColorsManager.kWhite,
                       ),
                     ),
                   ],

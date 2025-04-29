@@ -7,8 +7,9 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dar
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/media_report_radio_button.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/visitor_radio_button.dart';
-import 'package:news_app/constants.dart';
+
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class SignUpViewBody extends StatefulWidget {
   // Changed to StatefulWidget
@@ -81,7 +82,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     'I am a',
                     style: TextStyle(
                       fontSize: 15,
-                      color: kLightGrey,
+                      color: ColorsManager.kLightGrey,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -123,8 +124,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   GoRouter.of(context).push(AppRouter.kHomeView);
                 },
                 child: const CustomButtonWithoutImage(
-                  textColor: kWhite,
-                  containerColor: kPrimaryBlue,
+                  textColor: ColorsManager.kWhite,
+                  containerColor: ColorsManager.kPrimaryBlue,
                   leftPadding: 70,
                   rightPadding: 70,
                   text: 'Sign Up',
@@ -143,9 +144,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 imagePath: 'Assets/Images/google.png',
                 leftPadding: 10,
                 rightPadding: 10,
-                textColor: kWhite,
+                textColor: ColorsManager.kWhite,
                 text: 'Continue with Google',
-                containerColor: kPrimaryBlue,
+                containerColor: ColorsManager.kPrimaryBlue,
               ),
               const SizedBox(
                 height: 16,
@@ -154,9 +155,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 imagePath: 'Assets/Images/facebook.png',
                 leftPadding: 10,
                 rightPadding: 10,
-                textColor: kWhite,
+                textColor: ColorsManager.kWhite,
                 text: 'Continue with Facebook',
-                containerColor: kPrimaryBlue,
+                containerColor: ColorsManager.kPrimaryBlue,
               ),
               const SizedBox(
                 height: 16,
@@ -166,7 +167,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 'By Signing up to Insight 360, you are accepting our Terms & Conditions',
                 style: TextStyle(
                   fontSize: 14,
-                  color: kBlack,
+                  color: ColorsManager.kBlack,
                   fontWeight: FontWeight.w500,
                 ),
               ),

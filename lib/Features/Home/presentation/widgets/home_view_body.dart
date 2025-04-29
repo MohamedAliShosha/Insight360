@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
-import 'package:news_app/constants.dart';
 
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
             selectedItemColor: Colors.white,
             unselectedItemColor: Colors.white.withOpacity(0.5),
-            backgroundColor: kPrimaryBlue,
+            backgroundColor: ColorsManager.kPrimaryBlue,
             currentIndex: 0,
             // onTap: (int index) {
             //   if (index == 0) {

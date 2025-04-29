@@ -5,8 +5,9 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_button_withou
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_field.dart';
-import 'package:news_app/constants.dart';
+
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -59,7 +60,7 @@ class SignInViewBody extends StatelessWidget {
               const Text('Forget Password?',
                   style: TextStyle(
                     fontSize: 14,
-                    color: kBlack,
+                    color: ColorsManager.kBlack,
                     fontWeight: FontWeight.bold,
                   )),
               const SizedBox(
@@ -70,8 +71,8 @@ class SignInViewBody extends StatelessWidget {
                   GoRouter.of(context).push(AppRouter.kHomeView);
                 },
                 child: const CustomButtonWithoutImage(
-                  textColor: kWhite,
-                  containerColor: kPrimaryBlue,
+                  textColor: ColorsManager.kWhite,
+                  containerColor: ColorsManager.kPrimaryBlue,
                   leftPadding: 70,
                   rightPadding: 70,
                   text: 'Sign In',
@@ -90,9 +91,9 @@ class SignInViewBody extends StatelessWidget {
                 imagePath: 'Assets/Images/google.png',
                 leftPadding: 10,
                 rightPadding: 10,
-                textColor: kWhite,
+                textColor: ColorsManager.kWhite,
                 text: 'Continue with Google',
-                containerColor: kPrimaryBlue,
+                containerColor: ColorsManager.kPrimaryBlue,
               ),
               const SizedBox(
                 height: 16,
@@ -101,9 +102,9 @@ class SignInViewBody extends StatelessWidget {
                 imagePath: 'Assets/Images/facebook.png',
                 leftPadding: 10,
                 rightPadding: 10,
-                textColor: kWhite,
+                textColor: ColorsManager.kWhite,
                 text: 'Continue with Facebook',
-                containerColor: kPrimaryBlue,
+                containerColor: ColorsManager.kPrimaryBlue,
               ),
               const SizedBox(
                 height: 16,
@@ -116,7 +117,7 @@ class SignInViewBody extends StatelessWidget {
                     'Don\'t have an account? ',
                     style: TextStyle(
                       fontSize: 14,
-                      color: kLightGrey,
+                      color: ColorsManager.kLightGrey,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -130,7 +131,7 @@ class SignInViewBody extends StatelessWidget {
                       'Register',
                       style: TextStyle(
                         fontSize: 14,
-                        color: kBlack,
+                        color: ColorsManager.kBlack,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
