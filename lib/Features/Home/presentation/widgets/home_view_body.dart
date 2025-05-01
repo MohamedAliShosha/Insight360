@@ -26,9 +26,7 @@ class HomeViewBody extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kSearchView);
-                },
+                onTap: () => GoRouter.of(context).push(AppRouter.kSearchView),
                 child: const Icon(
                   Icons.search,
                   color: Colors.white,
@@ -36,10 +34,13 @@ class HomeViewBody extends StatelessWidget {
               ),
               label: 'Search',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () => GoRouter.of(context).push(AppRouter.kProfileView),
+                child: const Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
               ),
               label: 'Profile',
             ),
