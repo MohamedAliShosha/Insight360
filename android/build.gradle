@@ -1,3 +1,20 @@
+buildscript {
+    ext.kotlin_version = '1.8.22' // Update to latest stable version if needed
+
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:8.1.1'  // Ensure AGP version is included
+        classpath 'com.google.gms:google-services:4.4.2'
+    }
+}
+
 allprojects {
     repositories {
         google()
