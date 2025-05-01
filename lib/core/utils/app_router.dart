@@ -4,6 +4,7 @@ import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
 import 'package:news_app/Features/Search/presentation/views/search_view.dart';
+import 'package:news_app/Features/profile/presentation/views/profile_view.dart';
 
 import 'package:news_app/Features/splash/presentation/views/splash_view.dart';
 
@@ -16,6 +17,8 @@ abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kNewsDetailsView = '/newsDetailsView';
   static const kSearchView = '/searchView';
+  static const kProfileView =
+      '/profileView'; // This is the path that will be used to navigate to the profile screen
 
   // static used to make the method accessible without creating an instance of the class
   static final router = GoRouter(
@@ -48,6 +51,11 @@ abstract class AppRouter {
         path:
             kSearchView, // The path that will be used to navigate to the home screen
         builder: (context, state) => const SearchView(),
+      ),
+      GoRoute(
+        path:
+            kProfileView, // The path that will be used to navigate to the home screen
+        builder: (context, state) => const ProfileView(),
       ),
     ],
   );
