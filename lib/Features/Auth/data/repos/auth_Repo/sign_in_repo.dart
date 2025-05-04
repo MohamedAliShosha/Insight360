@@ -4,8 +4,8 @@ abstract class SignInRepo {
     required String password,
   });
 
-  Future<void> signInWithGoogle();
-  Future<void> signInWithFacebook();
+  // Future<void> signInWithGoogle();
+  // Future<void> signInWithFacebook();
 
   Future<void> signOut();
 }
