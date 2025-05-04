@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_button_with_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
@@ -15,7 +14,7 @@ class SignInViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 16, left: 16),
+      padding: const EdgeInsets.only(right: 16, left: 16, top: 24),
       child: ListView(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true, // To make the ListView take only the space it needs
@@ -66,17 +65,12 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
-                },
-                child: const CustomButtonWithoutImage(
-                  textColor: ColorsManager.kWhite,
-                  containerColor: ColorsManager.kPrimaryBlue,
-                  leftPadding: 70,
-                  rightPadding: 70,
-                  text: 'Sign In',
-                ),
+              const CustomButtonWithoutImage(
+                textColor: ColorsManager.kWhite,
+                containerColor: ColorsManager.kPrimaryBlue,
+                leftPadding: 70,
+                rightPadding: 70,
+                text: 'Sign In',
               ),
               const SizedBox(
                 height: 16,
@@ -87,28 +81,28 @@ class SignInViewBody extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              const CustomButtonWithOutImage(
-                imagePath: 'Assets/Images/google.png',
-                leftPadding: 10,
-                rightPadding: 10,
-                textColor: ColorsManager.kWhite,
-                text: 'Continue with Google',
-                containerColor: ColorsManager.kPrimaryBlue,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              const CustomButtonWithOutImage(
-                imagePath: 'Assets/Images/facebook.png',
-                leftPadding: 10,
-                rightPadding: 10,
-                textColor: ColorsManager.kWhite,
-                text: 'Continue with Facebook',
-                containerColor: ColorsManager.kPrimaryBlue,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              // const CustomButtonWithOutImage(
+              //   imagePath: 'Assets/Images/google.png',
+              //   leftPadding: 10,
+              //   rightPadding: 10,
+              //   textColor: ColorsManager.kWhite,
+              //   text: 'Continue with Google',
+              //   containerColor: ColorsManager.kPrimaryBlue,
+              // ),
+              // const SizedBox(
+              //   height: 16,
+              // ),
+              // const CustomButtonWithOutImage(
+              //   imagePath: 'Assets/Images/facebook.png',
+              //   leftPadding: 10,
+              //   rightPadding: 10,
+              //   textColor: ColorsManager.kWhite,
+              //   text: 'Continue with Facebook',
+              //   containerColor: ColorsManager.kPrimaryBlue,
+              // ),
+              // const SizedBox(
+              //   height: 16,
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
