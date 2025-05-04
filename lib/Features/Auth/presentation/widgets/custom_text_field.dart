@@ -11,7 +11,7 @@ class CustomTextField extends StatefulWidget {
 
   final String hintText;
   final bool isObscure; // To hold an initial value for the password visibility
-  final Function(String)? onChanged;
+  final Function(String)? onChanged; // Callback function to handle text changes
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -30,9 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onChanged: (value) {
-        // Handle the text input changes here if needed
-      },
+      onChanged: widget.onChanged,
       obscureText: _isObscure,
       decoration: InputDecoration(
         suffixIcon: widget.isObscure // Check if the field is a password field
