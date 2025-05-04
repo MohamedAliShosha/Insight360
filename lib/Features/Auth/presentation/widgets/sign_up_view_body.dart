@@ -50,25 +50,25 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   const CustomRichText(),
                 ],
               ),
-              const CustomTextField(
+              const CustomTextFormField(
                 hintText: 'Username',
               ),
               const SizedBox(
                 height: 16,
               ),
-              const CustomTextField(
+              const CustomTextFormField(
                 hintText: 'Email',
               ),
               const SizedBox(
                 height: 16,
               ),
-              const CustomTextField(
+              const CustomTextFormField(
                 hintText: 'Phone Number',
               ),
               const SizedBox(
                 height: 16,
               ),
-              const CustomTextField(
+              const CustomTextFormField(
                 isObscure: true,
                 hintText: 'Password',
               ),

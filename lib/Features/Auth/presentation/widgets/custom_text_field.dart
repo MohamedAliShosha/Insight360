@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
-class CustomTextField extends StatefulWidget {
-  const CustomTextField({
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({
     super.key,
     required this.hintText,
     this.isObscure = false,
@@ -14,10 +14,10 @@ class CustomTextField extends StatefulWidget {
   final Function(String)? onChanged; // Callback function to handle text changes
 
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _isObscure; // will used to toggle the password visibility
 
   @override
@@ -29,7 +29,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (data) {
+        if (data!.isEmpty) {
+          return 'This field is required'; // Check if the field is empty
+        }
+        return null;
+      },
       onChanged: widget.onChanged,
       obscureText: _isObscure,
       decoration: InputDecoration(
