@@ -98,7 +98,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         setState(() => isLoading = true);
                         try {
                           await SignInMethod(); // ✅ يتم استدعاؤها فقط بعد التأكد أن الـ form صحيح
-                          ShowSnackBar(context, message: 'Sign in successful!');
+                          ShowSnackBar(context,
+                              message: 'Sign in successfully!');
                           GoRouter.of(context).push(AppRouter.kHomeView);
                           // يمكنك توجيه المستخدم إلى الشاشة التالية هنا
                         } on FirebaseAuthException catch (e) {

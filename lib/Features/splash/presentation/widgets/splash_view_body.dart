@@ -1,66 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 'package:news_app/Features/splash/presentation/widgets/sliding_animated_logo.dart';
-
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
-class SplashViewBody extends StatefulWidget {
+class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
-
-  @override
-  State<SplashViewBody> createState() => _SplashViewBodyState();
-}
-
-class _SplashViewBodyState extends State<SplashViewBody>
-    with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<Offset> slidingAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    initSlidingAnimation();
-    navigateToSignInView();
-  }
-
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SlidingAnimatedLogoText(slidingAnimation: slidingAnimation),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'Assets/Images/logo 1 (1).png',
+              width: 120,
+              height: 120,
+              fit: BoxFit.contain,
+            ),
+            const SizedBox(width: 8),
+            RichText(
+              text: const TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'INSIGHT ',
+                    style: TextStyle(
+                      fontSize: 31,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.orange,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '360°',
+                    style: TextStyle(
+                      fontSize: 31,
+                      fontWeight: FontWeight.bold,
+                      color: ColorsManager.kWhite,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 100),
+        ElevatedButton(
+          onPressed: () {
+            GoRouter.of(context).push(AppRouter.kSignInView);
+          },
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+            backgroundColor: Colors.orange,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+          child: const Text(
+            'Get Started',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: ColorsManager.kWhite,
+            ),
+          ),
+        ),
       ],
-    );
-  }
-
-  void initSlidingAnimation() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-
-    slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 2),
-      end: Offset.zero,
-    ).animate(animationController);
-
-    animationController.forward();
-  }
-
-  void navigateToSignInView() {
-    Future.delayed(
-      const Duration(seconds: 2),
-      () {
-        GoRouter.of(context).push(AppRouter.kSignInView);
-      },
     );
   }
 }

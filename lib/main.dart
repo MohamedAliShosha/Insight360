@@ -10,6 +10,9 @@ class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      builder: (context, child) {
+        return HeroControllerScope.none(child: child!);
+      },
       theme: ThemeData(
         fontFamily: GoogleFonts.inter().fontFamily,
       ),
