@@ -22,7 +22,6 @@ class SignUpViewBody extends StatefulWidget {
 
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   // Use a string to track the selected option
-  String? _selectedUserType; // Nullable to allow no selection
   String? userName, email, password;
   GlobalKey<FormState> formKey = GlobalKey(); // To manage the form state
   bool isLoading = false; // To manage the loading state
