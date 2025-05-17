@@ -10,6 +10,7 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dar
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
+import 'package:news_app/core/utils/functions/snack_bar_function.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
@@ -27,24 +28,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        if (state is SignUpLoading) {
-          setState(() {
-            isLoading = true;
-          });
-        } else if (state is SignUpSuccess) {
-          setState(() {
-            isLoading = false;
-          });
+        setState(() {
+          isLoading = state is SignUpLoading;
+        });
+        if (state is SignUpSuccess) {
+          ShowSnackBar(context, message: 'Sign in successfully!');
+          GoRouter.of(context).push(AppRouter.kHomeView);
         } else if (state is SignUpError) {
-          setState(() {
-            isLoading = false;
-          });
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: Colors.red,
-            ),
-          );
+          ShowSnackBar(context, message: state.errorMessage);
         }
       },
       builder: (context, state) {
