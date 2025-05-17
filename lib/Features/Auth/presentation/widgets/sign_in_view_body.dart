@@ -4,10 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignInCubit/sign_in_cubit.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
-
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/functions/snack_bar_function.dart';
@@ -41,6 +39,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
       },
       builder: (context, state) {
         return ModalProgressHUD(
+          progressIndicator: const CircularProgressIndicator(
+            color: ColorsManager.kPrimaryBlue,
+          ),
+          color: ColorsManager.kPrimaryBlue,
           inAsyncCall:
               isLoading, // Set to true when you want to show the loading indicator
           child: Padding(
@@ -126,12 +128,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       const SizedBox(
                         height: 16,
                       ),
-                      const CustomDivider(
-                        signUpOrSignIn: 'or sign in with',
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
+                      // const CustomDivider(
+                      //   signUpOrSignIn: 'or sign in with',
+                      // ),
+                      // const SizedBox(
+                      //   height: 16,
+                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

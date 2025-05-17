@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignUpCubit/sign_up_cubit.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:news_app/core/utils/app_router.dart';
@@ -20,7 +19,7 @@ class SignUpViewBody extends StatefulWidget {
 }
 
 class _SignUpViewBodyState extends State<SignUpViewBody> {
-  String? userName, email, password;
+  String? userName, email, password, phoneNumber;
   bool isLoading = false;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -28,11 +27,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        setState(() {
-          isLoading = state is SignUpLoading;
-        });
         if (state is SignUpSuccess) {
-          ShowSnackBar(context, message: 'Sign in successfully!');
+          ShowSnackBar(context, message: 'Sign up successfully!');
           GoRouter.of(context).push(AppRouter.kHomeView);
         } else if (state is SignUpError) {
           ShowSnackBar(context, message: state.errorMessage);
@@ -40,7 +36,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: isLoading,
+          progressIndicator: const CircularProgressIndicator(
+            color: ColorsManager.kPrimaryBlue,
+          ),
+          color: ColorsManager.kPrimaryBlue,
+          inAsyncCall: state is SignUpLoading,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Form(
@@ -81,6 +81,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       ),
                       const SizedBox(height: 16),
                       CustomTextFormField(
+                        onChanged: (data) {
+                          phoneNumber = data;
+                        },
                         keyboardType: TextInputType.phone,
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
@@ -101,12 +104,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           if (formKey.currentState!.validate() &&
                               email != null &&
                               password != null) {
-                            setState(() => isLoading = true);
                             BlocProvider.of<SignUpCubit>(context)
                                 .signUpMethod(email!, password!);
-                            setState(() {
-                              GoRouter.of(context).push(AppRouter.kHomeView);
-                            });
+                          } else {
+                            ShowSnackBar(context,
+                                message: 'Please fill all fields');
                           }
                         },
                         child: const CustomButtonWithoutImage(
@@ -118,8 +120,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      const CustomDivider(signUpOrSignIn: 'or sign up with'),
-                      const SizedBox(height: 16),
+                      // const CustomDivider(signUpOrSignIn: 'or sign up with'),
+                      // const SizedBox(height: 16),
                       const Text(
                         textAlign: TextAlign.center,
                         'By Signing up to Insight 360, you are accepting our Terms & Conditions',
