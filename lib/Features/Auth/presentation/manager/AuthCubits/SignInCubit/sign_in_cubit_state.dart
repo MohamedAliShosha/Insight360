@@ -7,9 +7,8 @@ final class SignInCubitInitial extends SignInCubitState {}
 final class SignInLoading extends SignInCubitState {}
 
 final class SignInSuccess extends SignInCubitState {
-  final String message;
-
-  SignInSuccess(this.message);
+  final User? user;
+  SignInSuccess(this.user);
 }
 
 final class SignInError extends SignInCubitState {
