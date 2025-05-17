@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Auth/presentation/manager/Auth_cubit/sign_up_cubit.dart';
+import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignUpCubit/sign_up_cubit.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/sign_up_view_body.dart';
 
 import 'package:news_app/core/utils/colors_manager.dart';

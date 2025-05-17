@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:news_app/Features/Auth/presentation/manager/Auth_cubit/sign_up_cubit.dart';
+import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignUpCubit/sign_up_cubit.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
