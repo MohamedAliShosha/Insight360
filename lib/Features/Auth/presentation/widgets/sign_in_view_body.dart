@@ -128,7 +128,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     rightPadding: 70,
                     text: 'Sign In',
                   ),
-
                   const SizedBox(
                     height: 16,
                   ),
@@ -138,28 +137,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                   const SizedBox(
                     height: 16,
                   ),
-                  // const CustomButtonWithOutImage(
-                  //   imagePath: 'Assets/Images/google.png',
-                  //   leftPadding: 10,
-                  //   rightPadding: 10,
-                  //   textColor: ColorsManager.kWhite,
-                  //   text: 'Continue with Google',
-                  //   containerColor: ColorsManager.kPrimaryBlue,
-                  // ),
-                  // const SizedBox(
-                  //   height: 16,
-                  // ),
-                  // const CustomButtonWithOutImage(
-                  //   imagePath: 'Assets/Images/facebook.png',
-                  //   leftPadding: 10,
-                  //   rightPadding: 10,
-                  //   textColor: ColorsManager.kWhite,
-                  //   text: 'Continue with Facebook',
-                  //   containerColor: ColorsManager.kPrimaryBlue,
-                  // ),
-                  // const SizedBox(
-                  //   height: 16,
-                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
