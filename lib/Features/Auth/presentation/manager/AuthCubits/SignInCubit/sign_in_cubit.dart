@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'sign_in_cubit_state.dart';
+part 'sign_in_states.dart';
 
 class SignInCubit extends Cubit<SignInCubitState> {
   SignInCubit() : super(SignInCubitInitial());

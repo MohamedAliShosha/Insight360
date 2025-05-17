@@ -1,4 +1,4 @@
-part of 'sign_in_cubit_cubit.dart';
+part of 'sign_in_cubit.dart';
 
 abstract class SignInCubitState {}
 
