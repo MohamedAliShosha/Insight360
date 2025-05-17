@@ -6,7 +6,7 @@ import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignUpCub
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_divider.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form%20_field.dart';
+import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
