@@ -56,10 +56,11 @@ class HomeViewBody extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: GestureDetector(
-                        onTap: () {
-                          GoRouter.of(context).push(AppRouter.kNewsDetailsView);
-                        },
-                        child: const NewsItem()),
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kNewsDetailsView);
+                      },
+                      child: const NewsItem(),
+                    ),
                   );
                 },
               ),
