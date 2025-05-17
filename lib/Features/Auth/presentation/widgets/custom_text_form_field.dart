@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomTextFormField extends StatefulWidget {
@@ -7,11 +8,15 @@ class CustomTextFormField extends StatefulWidget {
     required this.hintText,
     this.isObscure = false,
     this.onChanged,
+    this.keyboardType,
+    this.inputFormatters,
   });
 
   final String hintText;
   final bool isObscure; // To hold an initial value for the password visibility
   final Function(String)? onChanged; // Callback function to handle text changes
+  final TextInputType? keyboardType; // To identify the type of keyboard to show
+  final List<TextInputFormatter>? inputFormatters; // To format the input text
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -30,6 +35,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.keyboardType, // To show Numbers keyboard
+      inputFormatters: widget.inputFormatters, // To format the input text
       validator: (data) {
         if (data!.isEmpty) {
           return 'This field is required'; // Check if the field is empty
