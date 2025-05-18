@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:news_app/constants.dart';
 
 class ApiService {
-  final String _baseUrl = 'https://newsapi.org/v2/';
+  final String _baseUrl = Constants.baseUrl;
   final Dio _dio;
 
   ApiService(this._dio);
