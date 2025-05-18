@@ -12,16 +12,17 @@ extension NavigationExtensions on BuildContext {
 
   // Replace the current route with a new one
   Future<T?> pushReplacement<T, TO>(Widget page) => Navigator.of(
-    this,
-  ).pushReplacement(MaterialPageRoute(builder: (_) => page));
+        this,
+      ).pushReplacement(MaterialPageRoute(builder: (_) => page));
 
   // Replace the current route with a named route
   Future<T?> pushReplacementNamed<T, TO>(
     String routeName, {
     Object? arguments,
-  }) => Navigator.of(
-    this,
-  ).pushReplacementNamed<T, TO>(routeName, arguments: arguments);
+  }) =>
+      Navigator.of(
+        this,
+      ).pushReplacementNamed<T, TO>(routeName, arguments: arguments);
 
   // Pop the current route off the stack
   void back() => Navigator.of(this).pop();
@@ -46,11 +47,12 @@ extension NavigationExtensions on BuildContext {
   Future<T?> pushNamedAndRemoveUntil<T>(
     String routeName, {
     Object? arguments,
-  }) => Navigator.of(this).pushNamedAndRemoveUntil<T>(
-    routeName,
-     (route) => false,
-    arguments: arguments,
-  );
+  }) =>
+      Navigator.of(this).pushNamedAndRemoveUntil<T>(
+        routeName,
+        (route) => false,
+        arguments: arguments,
+      );
 
   // Try to pop the route; returns true if successful, otherwise false
   Future<bool> maybePop() => Navigator.of(this).maybePop();

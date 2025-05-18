@@ -1,5 +1,3 @@
-
-
 // //! DATE TIME EXTENSION
 // extension DateTimeExtensions on DateTime {
 //   // Check if the date is today

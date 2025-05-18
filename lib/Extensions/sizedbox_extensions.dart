@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-
 //! SIZEDBOX EXTENSIONS
 extension SizedBoxExtensions on Widget {
   // Add a fixed width to a widget

@@ -8,13 +8,14 @@ extension PositionedExtensions on Widget {
     double? top,
     double? right,
     double? bottom,
-  }) => Positioned(
-    left: left,
-    top: top,
-    right: right,
-    bottom: bottom,
-    child: this,
-  );
+  }) =>
+      Positioned(
+        left: left,
+        top: top,
+        right: right,
+        bottom: bottom,
+        child: this,
+      );
   // Positions the widget at the top left of a Stack.
   Widget positionedTopLeft({double left = 0.0, double top = 0.0}) =>
       Positioned(left: left, top: top, child: this);
