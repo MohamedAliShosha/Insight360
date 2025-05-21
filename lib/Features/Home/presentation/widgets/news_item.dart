@@ -23,25 +23,32 @@ class NewsItem extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(article.urlToImage ?? ''),
+                image:
+                    article.urlToImage != null && article.urlToImage!.isNotEmpty
+                        ? NetworkImage(article.urlToImage!)
+                        : const AssetImage('Assets/Images/general.png')
+                            as ImageProvider,
               ),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
           const SizedBox(width: 8),
           Expanded(
+            // تستخدم هنا بشكل صحيح داخل Row
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   article.title ?? '',
                   maxLines: 2,
-                  overflow: TextOverflow.ellipsis, // to show ...
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
+                    color: ColorsManager.kPrimaryBlue,
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 2),
                 Text(
                   article.publishedAt ?? '',
                   style: const TextStyle(
@@ -50,17 +57,15 @@ class NewsItem extends StatelessWidget {
                     color: ColorsManager.kLightGrey,
                   ),
                 ),
-                const SizedBox(height: 0),
-                Expanded(
-                  child: Text(
-                    maxLines: 3,
-                    // overflow: TextOverflow.ellipsis,
-                    article.source!.name ?? '',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: ColorsManager.kPrimaryBlue,
-                    ),
+                const SizedBox(height: 2),
+                Text(
+                  article.source?.name ?? '',
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: ColorsManager.kPrimaryBlue,
                   ),
                 ),
               ],

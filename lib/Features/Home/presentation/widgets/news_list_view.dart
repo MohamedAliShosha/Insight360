@@ -9,19 +9,17 @@ class NewsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: articles.length,
-        itemBuilder: (context, index) {
-          final article = articles[index];
-          return SizedBox(
-            height: 125,
-            child: NewsItem(article: article),
-          );
-        },
-      ),
+    return ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: articles.length,
+      itemBuilder: (context, index) {
+        final article = articles[index];
+        return SizedBox(
+          height: 125,
+          child: NewsItem(article: article),
+        );
+      },
     );
   }
 }
