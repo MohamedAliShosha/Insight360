@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class NewsDetailsViewBody extends StatelessWidget {
-  const NewsDetailsViewBody({super.key});
+  const NewsDetailsViewBody({super.key, required this.article});
+
+  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +25,14 @@ class NewsDetailsViewBody extends StatelessWidget {
                 child: Container(
                   height: 420,
                   width: 431,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     image: DecorationImage(
-                      image: AssetImage('Assets/Images/science.png'),
+                      image: article.urlToImage != null &&
+                              article.urlToImage!.isNotEmpty
+                          ? NetworkImage(article.urlToImage!)
+                          : const AssetImage('Assets/Images/general.png')
+                              as ImageProvider,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -32,31 +40,41 @@ class NewsDetailsViewBody extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Text(
-              maxLines: 3, //
+              maxLines: 15, //
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
-              'There is no description available for this book',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.93),
+              article.description ??
+                  article.content ??
+                  'No description available',
+
+              style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18.93,
+                  color: ColorsManager.kPrimaryBlue),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Text(
-              'April 12, 2022',
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
+              DateFormat('yyyy-MM-dd')
+                  .format(DateTime.parse(article.publishedAt ?? '')),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 13.25,
                   color: ColorsManager.kLightGrey),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Text(
-              'The Remaining of the description',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 10.26),
+              article.source?.name ?? '',
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: ColorsManager.kBlack),
             ),
           ),
         ],

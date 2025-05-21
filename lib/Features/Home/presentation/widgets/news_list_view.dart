@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
-import 'package:news_app/core/utils/app_router.dart';
 
 class NewsListView extends StatelessWidget {
   final List<Article> articles;
@@ -19,12 +17,7 @@ class NewsListView extends StatelessWidget {
         final article = articles[index];
         return SizedBox(
           height: 125,
-          child: GestureDetector(
-            onTap: () {
-              GoRouter.of(context).push(AppRouter.kNewsDetailsView);
-            },
-            child: NewsItem(article: article),
-          ),
+          child: NewsItem(article: article),
         );
       },
     );
