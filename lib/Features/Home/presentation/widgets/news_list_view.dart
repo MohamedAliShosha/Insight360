@@ -12,6 +12,7 @@ class NewsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
