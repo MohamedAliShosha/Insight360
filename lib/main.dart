@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/service_locator.dart';
 
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
@@ -23,6 +24,7 @@ class NewsApp extends StatelessWidget {
 }
 
 Future<void> main() async {
+  setUpServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FirebaseAppCheck.instance.activate(

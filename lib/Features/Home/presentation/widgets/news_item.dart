@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({
     super.key,
+    required this.article,
   });
+
+  final Article article;
 
   @override
   Widget build(BuildContext context) {

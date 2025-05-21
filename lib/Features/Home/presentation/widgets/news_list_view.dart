@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
-import 'package:news_app/core/utils/app_router.dart';
 
 class NewsListView extends StatelessWidget {
-  const NewsListView({
-    super.key,
-  });
+  final List<Article> articles;
+
+  const NewsListView({super.key, required this.articles});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 10,
+        itemCount: articles.length,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kNewsDetailsView);
-              },
-              child: const NewsItem(),
-            ),
-          );
+          final article = articles[index];
+          return NewsItem(article: article);
         },
       ),
     );
