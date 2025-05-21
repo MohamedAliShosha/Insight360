@@ -20,10 +20,11 @@ class NewsListView extends StatelessWidget {
         return SizedBox(
           height: 125,
           child: GestureDetector(
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kNewsDetailsView);
-              },
-              child: NewsItem(article: article)),
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kNewsDetailsView);
+            },
+            child: NewsItem(article: article),
+          ),
         );
       },
     );
