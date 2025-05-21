@@ -51,9 +51,8 @@ class NewsItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  DateFormat('yyyy-MM-dd').format(
-                    DateTime.parse(article.publishedAt ?? ''),
-                  ),
+                  DateFormat('yyyy-MM-dd')
+                      .format(DateTime.parse(article.publishedAt ?? '')),
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
