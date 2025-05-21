@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -6,9 +5,9 @@ import 'package:news_app/Features/Home/data/repos/home_repo_implement.dart';
 import 'package:news_app/Features/Home/presentation/manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
 import 'package:news_app/Features/Home/presentation/widgets/news_list_view.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/core/utils/api_service.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
+import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/core/widgets/custom_error_widget.dart';
 import 'package:news_app/core/widgets/custom_loading_indicator.dart';
 
@@ -18,13 +17,13 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          TopHeadLinesCubit(HomeRepoImplement(ApiService(Dio())))
-            ..getTopHeadLines(
-              apiKey: Constants.apiKey,
-              country: 'us',
-              category: 'sports',
-            ),
+      create: (context) => TopHeadLinesCubit(
+        getIt<HomeRepoImplement>(),
+      )..getTopHeadLines(
+          apiKey: Constants.apiKey,
+          country: 'us',
+          category: 'sports',
+        ),
       child: SafeArea(
         child: Scaffold(
           bottomNavigationBar: BottomNavigationBar(
