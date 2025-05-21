@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
+      body: BlocProvider<TopHeadLinesCubit>(
         create: (context) => TopHeadLinesCubit(
           HomeRepoImplement(
             ApiService(
