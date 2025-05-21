@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class NewsDetailsViewBody extends StatelessWidget {
-  const NewsDetailsViewBody({super.key, required this.article});
-
-  final Article article;
+  const NewsDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

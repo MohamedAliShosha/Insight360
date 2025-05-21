@@ -1,7 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
 import 'package:news_app/Features/Search/presentation/views/search_view.dart';
@@ -40,11 +39,8 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kNewsDetailsView,
-        pageBuilder: (context, state) => NoTransitionPage(
-          child: NewsDetailsView(
-            article: state.extra as Article,
-          ),
-        ),
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: NewsDetailsView()),
       ),
       GoRoute(
         path: kSearchView,
