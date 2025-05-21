@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({
@@ -11,60 +12,62 @@ class NewsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      // crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 12),
-          child: Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
             height: 100,
             width: 140,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('Assets/Images/science.png'),
+                fit: BoxFit.cover,
+                image: NetworkImage(article.urlToImage ?? ''),
               ),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Business',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-              ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  article.title ?? '',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis, // to show ...
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  article.publishedAt ?? '',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: ColorsManager.kLightGrey,
+                  ),
+                ),
+                const SizedBox(height: 0),
+                Expanded(
+                  child: Text(
+                    maxLines: 3,
+                    // overflow: TextOverflow.ellipsis,
+                    article.source!.name ?? '',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: ColorsManager.kPrimaryBlue,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: 4,
-            ),
-            Text(
-              '4/12/2023',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            Text(
-              'Business is the activity',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
-            ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

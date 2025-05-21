@@ -11,10 +11,15 @@ class NewsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
         itemCount: articles.length,
         itemBuilder: (context, index) {
           final article = articles[index];
-          return NewsItem(article: article);
+          return SizedBox(
+            height: 125,
+            child: NewsItem(article: article),
+          );
         },
       ),
     );
