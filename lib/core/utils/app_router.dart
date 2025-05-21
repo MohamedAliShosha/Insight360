@@ -19,38 +19,45 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: SplashView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: SplashView(),
+        ),
       ),
       GoRoute(
         path: kSignInView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: SignInView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: SignInView(),
+        ),
       ),
       GoRoute(
         path: kSignUpView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: SignUpView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: SignUpView(),
+        ),
       ),
       GoRoute(
         path: kHomeView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: HomeView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: HomeView(),
+        ),
       ),
       GoRoute(
         path: kNewsDetailsView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: NewsDetailsView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: NewsDetailsView(),
+        ),
       ),
       GoRoute(
         path: kSearchView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: SearchView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: SearchView(),
+        ),
       ),
       GoRoute(
         path: kProfileView,
-        pageBuilder: (context, state) =>
-            const NoTransitionPage(child: ProfileView()),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: ProfileView(),
+        ),
       ),
     ],
   );
