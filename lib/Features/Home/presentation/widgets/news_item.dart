@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 
 class NewsItem extends StatelessWidget {
   const NewsItem({
     super.key,
-    required this.article,
   });
-
-  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +16,10 @@ class NewsItem extends StatelessWidget {
           child: Container(
             height: 100,
             width: 140,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(article.urlToImage ?? ''),
+                image: AssetImage('Assets/Images/science.png'),
               ),
             ),
           ),
@@ -31,34 +27,33 @@ class NewsItem extends StatelessWidget {
         const SizedBox(
           width: 12,
         ),
-        Column(
+        const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              article.title ?? '',
-              style: const TextStyle(
+              'Business',
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 4,
             ),
             Text(
-              article.publishedAt ?? '',
-              // ignore: prefer_const_constructors
+              '4/12/2023',
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 16,
                 color: Colors.grey,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 4,
             ),
             Text(
-              article.description ?? '',
-              style: const TextStyle(
+              'Business is the activity',
+              style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 16,
               ),
