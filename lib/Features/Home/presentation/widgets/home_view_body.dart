@@ -48,7 +48,9 @@ class HomeViewBody extends StatelessWidget {
         ),
         body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [NewsListView()],
+          children: [
+            NewsListView(),
+          ],
         ),
       ),
     );

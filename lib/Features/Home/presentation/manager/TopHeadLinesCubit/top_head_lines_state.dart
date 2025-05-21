@@ -12,8 +12,8 @@ final class TopHeadLinesInitial extends TopHeadLinesState {}
 final class TopHeadLinesLoading extends TopHeadLinesState {}
 
 final class TopHeadLinesSuccess extends TopHeadLinesState {
-  final List<NewsModel> news;
-  const TopHeadLinesSuccess({required this.news});
+  final List<Article> articles;
+  const TopHeadLinesSuccess({required this.articles});
 }
 
 final class TopHeadLinesError extends TopHeadLinesState {

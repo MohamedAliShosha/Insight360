@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:news_app/Features/Home/data/models/news_model/news_model.dart';
+import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/data/repos/home_repo.dart';
 import 'package:news_app/core/errors/failures.dart';
 import 'package:news_app/core/utils/api_service.dart';
@@ -10,7 +10,7 @@ class HomeRepoImplement implements HomeRepo {
   HomeRepoImplement(this.apiService);
 
   @override
-  Future<Either<Failures, List<NewsModel>>> getToHeadLines({
+  Future<Either<Failures, List<Article>>> getToHeadLines({
     required String apiKey,
     required String country,
     required String category,
@@ -22,9 +22,10 @@ class HomeRepoImplement implements HomeRepo {
       );
 
       final articles = data['articles'] as List;
-      final news = articles.map((item) => NewsModel.fromJson(item)).toList();
+      final articlesList =
+          articles.map((item) => Article.fromJson(item)).toList();
 
-      return Right(news);
+      return Right(articlesList);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
     }
