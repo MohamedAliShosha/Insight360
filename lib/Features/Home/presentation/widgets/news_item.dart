@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
@@ -50,7 +51,9 @@ class NewsItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  article.publishedAt ?? '',
+                  DateFormat('yyyy-MM-dd').format(
+                    DateTime.parse(article.publishedAt ?? ''),
+                  ),
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
