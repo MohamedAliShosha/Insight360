@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
+import 'package:news_app/Features/Home/presentation/widgets/news_list_view.dart';
 
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
@@ -46,26 +46,9 @@ class HomeViewBody extends StatelessWidget {
             ),
           ],
         ),
-        body: Column(
+        body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: GestureDetector(
-                      onTap: () {
-                        GoRouter.of(context).push(AppRouter.kNewsDetailsView);
-                      },
-                      child: const NewsItem(),
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
+          children: [NewsListView()],
         ),
       ),
     );
