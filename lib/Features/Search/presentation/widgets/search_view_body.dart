@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Features/Search/presentation/widgets/custom_search_text_field.dart';
+import 'package:news_app/Features/Search/presentation/widgets/search_result_list_view.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -16,6 +17,23 @@ class SearchViewBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomSearchTextField(),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Search Results',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: SearchResultListView(),
+              ),
             ],
           ),
         ),

@@ -1,12 +1,16 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
+import 'package:news_app/Features/Search/data/repos/search_repo_implement.dart';
+import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
 import 'package:news_app/Features/Search/presentation/views/search_view.dart';
 import 'package:news_app/Features/profile/presentation/views/profile_view.dart';
 import 'package:news_app/Features/splash/presentation/views/splash_view.dart';
+import 'package:news_app/core/utils/service_locator.dart';
 
 abstract class AppRouter {
   static const kSignInView = '/signInView';
@@ -52,8 +56,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSearchView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: SearchView(),
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: BlocProvider(
+            create: (context) => SearchCubit(
+              getIt<SearchRepoImplement>(),
+            ),
+            child: const SearchView(),
+          ),
         ),
       ),
       GoRoute(

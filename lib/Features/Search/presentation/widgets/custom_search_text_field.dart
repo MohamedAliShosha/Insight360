@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
+import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomSearchTextField extends StatelessWidget {
@@ -16,6 +19,9 @@ class CustomSearchTextField extends StatelessWidget {
           );
           return;
         }
+        var searchNew = BlocProvider.of<SearchCubit>(context);
+        searchNew.getSearchedNews(
+            apiKey: Constants.apiKey, category: value, country: 'us');
       },
       cursorColor: ColorsManager.kWhite,
       decoration: InputDecoration(
