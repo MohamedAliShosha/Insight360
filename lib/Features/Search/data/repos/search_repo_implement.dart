@@ -7,7 +7,7 @@ import 'package:news_app/core/utils/api_service.dart';
 class SearchRepoImplement implements SearchRepo {
   final ApiService apiService;
 
-  SearchRepoImplement({required this.apiService});
+  SearchRepoImplement(this.apiService);
   @override
   Future<Either<Failures, List<Article>>> getSearchedNews(
       {required String apiKey,
