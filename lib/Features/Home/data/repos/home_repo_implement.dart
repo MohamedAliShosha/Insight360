@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/data/repos/home_repo.dart';
 import 'package:news_app/core/errors/failures.dart';
@@ -27,6 +28,9 @@ class HomeRepoImplement implements HomeRepo {
 
       return Right(articlesList);
     } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
       return Left(ServerFailure(e.toString()));
     }
   }

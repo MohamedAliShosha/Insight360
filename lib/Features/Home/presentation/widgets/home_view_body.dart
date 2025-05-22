@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
       )..getTopHeadLines(
           apiKey: Constants.apiKey,
           country: 'us',
-          category: 'sports',
+          category: 'general',
         ),
       child: SafeArea(
         child: Scaffold(

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
-class NewsItemShimmer extends StatelessWidget {
-  const NewsItemShimmer({super.key});
+class SearchShimmerItem extends StatelessWidget {
+  const SearchShimmerItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Shimmer.fromColors(
         baseColor: ColorsManager.kLightGrey.withOpacity(0.3),
         highlightColor: ColorsManager.kWhite.withOpacity(0.6),
@@ -27,16 +27,25 @@ class NewsItemShimmer extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(3, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: Container(
-                      height: 14,
-                      width: double.infinity,
-                      color: ColorsManager.kLightGrey,
-                    ),
-                  );
-                }),
+                children: [
+                  Container(
+                    height: 16,
+                    width: double.infinity,
+                    color: ColorsManager.kLightGrey,
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 14,
+                    width: 100,
+                    color: ColorsManager.kLightGrey,
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    height: 16,
+                    width: 60,
+                    color: ColorsManager.kLightGrey,
+                  ),
+                ],
               ),
             ),
           ],

@@ -47,7 +47,7 @@ class NewsItem extends StatelessWidget {
                 children: [
                   Text(
                     article.title ?? '',
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       color: ColorsManager.kPrimaryBlue,
@@ -55,7 +55,6 @@ class NewsItem extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 2),
                   Text(
                     DateFormat('yyyy-MM-dd')
                         .format(DateTime.parse(article.publishedAt ?? '')),
@@ -65,10 +64,9 @@ class NewsItem extends StatelessWidget {
                       color: ColorsManager.kLightGrey,
                     ),
                   ),
-                  const SizedBox(height: 2),
                   Text(
                     article.source?.name ?? '',
-                    maxLines: 3,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,

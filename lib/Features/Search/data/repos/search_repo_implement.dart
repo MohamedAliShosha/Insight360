@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Search/data/repos/search_repo.dart';
 import 'package:news_app/core/errors/failures.dart';
@@ -23,6 +24,9 @@ class SearchRepoImplement implements SearchRepo {
           articles.map((item) => Article.fromJson(item)).toList();
       return right(articlesList);
     } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
       return Left(
         ServerFailure(
           e.toString(),
