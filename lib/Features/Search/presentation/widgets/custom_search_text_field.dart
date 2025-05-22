@@ -5,29 +5,35 @@ import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({
+  CustomSearchTextField({
     super.key,
   });
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (String value) {
-        if (value.isEmpty) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Please enter a search term.')),
-          );
-          return;
-        }
-        var searchNew = BlocProvider.of<SearchCubit>(context);
-        searchNew.getSearchedNews(
-            apiKey: Constants.apiKey, category: value, country: 'us');
-      },
+      style: const TextStyle(
+        color: ColorsManager.kWhite,
+      ),
+      controller: _controller,
       cursorColor: ColorsManager.kWhite,
       decoration: InputDecoration(
         hintText: 'Search by Category',
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            final value = _controller.text
+                .trim(); // trim used to remove leading/trailing spaces
+            if (value.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Please enter a search term.')),
+              );
+              return;
+            }
+            context.read<SearchCubit>().getSearchedNews(
+                apiKey: Constants.apiKey, category: value, country: 'us');
+            _controller.clear(); // clear the text field after search
+          },
           icon: const Icon(
             Icons.search,
             color: ColorsManager.kWhite,
