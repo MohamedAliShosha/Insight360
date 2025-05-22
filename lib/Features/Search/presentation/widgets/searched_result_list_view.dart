@@ -97,7 +97,7 @@ class SearchedResultListView extends StatelessWidget {
             },
           );
         } else {
-          return const CustomErrorWidget(errorMessage: 'Something went wrong');
+          return const CustomErrorWidget(errorMessage: 'No Results Found');
         }
       },
     );
