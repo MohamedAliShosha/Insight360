@@ -9,6 +9,14 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (String value) {
+        if (value.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Please enter a search term.')),
+          );
+          return;
+        }
+      },
       cursorColor: ColorsManager.kWhite,
       decoration: InputDecoration(
         hintText: 'Search by Category',
