@@ -28,10 +28,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpSuccess) {
-          ShowSnackBar(context, message: 'Sign up successfully!');
+          showSnackBar(context, message: 'Sign up successfully!');
           GoRouter.of(context).push(AppRouter.kHomeView);
         } else if (state is SignUpError) {
-          ShowSnackBar(context, message: state.errorMessage);
+          showSnackBar(context, message: state.errorMessage);
         }
       },
       builder: (context, state) {
@@ -107,7 +107,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             BlocProvider.of<SignUpCubit>(context)
                                 .signUpMethod(email!, password!);
                           } else {
-                            ShowSnackBar(context,
+                            showSnackBar(context,
                                 message: 'Please fill all fields');
                           }
                         },

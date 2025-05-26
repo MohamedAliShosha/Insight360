@@ -31,10 +31,10 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         });
 
         if (state is SignInSuccess) {
-          ShowSnackBar(context, message: 'Sign in successfully!');
+          showSnackBar(context, message: 'Sign in successfully!');
           GoRouter.of(context).push(AppRouter.kHomeView);
         } else if (state is SignInError) {
-          ShowSnackBar(context, message: state.errorMessage);
+          showSnackBar(context, message: state.errorMessage);
         }
       },
       builder: (context, state) {
@@ -115,7 +115,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                             BlocProvider.of<SignInCubit>(context)
                                 .signInMethod(email!, password!);
                           } else {
-                            ShowSnackBar(context,
+                            showSnackBar(context,
                                 message: 'Please fill in all required fields.');
                           }
                         },
