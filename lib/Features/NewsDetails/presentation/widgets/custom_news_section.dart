@@ -3,8 +3,8 @@ import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/NewsDetails/presentation/widgets/custom_button.dart';
 import 'package:news_app/core/functions/launch_url_function.dart';
 
-class BooksAction extends StatelessWidget {
-  const BooksAction({super.key, required this.articleModel});
+class NewsAction extends StatelessWidget {
+  const NewsAction({super.key, required this.articleModel});
   final Article articleModel;
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
+import 'package:news_app/Features/NewsDetails/presentation/widgets/custom_news_section.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class NewsDetailsViewBody extends StatelessWidget {
@@ -77,6 +78,10 @@ class NewsDetailsViewBody extends StatelessWidget {
                   color: ColorsManager.kBlack),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          NewsAction(articleModel: article),
         ],
       ),
     );
