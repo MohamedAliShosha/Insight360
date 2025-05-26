@@ -9,7 +9,7 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dar
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/utils/functions/snack_bar_function.dart';
+import 'package:news_app/core/functions/snack_bar_function.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
