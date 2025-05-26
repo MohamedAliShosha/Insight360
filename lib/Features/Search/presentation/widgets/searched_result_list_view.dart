@@ -51,7 +51,6 @@ class SearchedResultListView extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Expanded(
-                        // تستخدم هنا بشكل صحيح داخل Row
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -107,7 +106,7 @@ class SearchedResultListView extends StatelessWidget {
             },
           );
         } else {
-          return const CustomErrorWidget(errorMessage: 'No Results Found');
+          return const CustomErrorWidget(errorMessage: 'No Results Yet.');
         }
       },
     );
