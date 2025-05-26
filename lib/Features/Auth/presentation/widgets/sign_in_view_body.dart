@@ -9,6 +9,7 @@ import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_fie
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
+import 'package:news_app/core/utils/styles.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -94,18 +95,17 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           password = value;
                         },
                         isObscure: true,
-                        // suffixIcon: Icon(Icons.visibility_off),
                         hintText: 'Password',
                       ),
                       const SizedBox(
                         height: 24,
                       ),
-                      const Text('Forget Password?',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: ColorsManager.kBlack,
-                            fontWeight: FontWeight.bold,
-                          )),
+                      Text(
+                        'Forget Password?',
+                        style: Styles.txtStyleBold14.copyWith(
+                          color: ColorsManager.kBlack,
+                        ),
+                      ),
                       const SizedBox(
                         height: 24,
                       ),
@@ -128,37 +128,25 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       const SizedBox(
                         height: 16,
                       ),
-                      // const CustomDivider(
-                      //   signUpOrSignIn: 'or sign in with',
-                      // ),
-                      // const SizedBox(
-                      //   height: 16,
-                      // ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
-                            textAlign: TextAlign.center,
-                            'Don\'t have an account? ',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: ColorsManager.kLightGrey,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                          Text(
+                              textAlign: TextAlign.center,
+                              'Don\'t have an account? ',
+                              style: Styles.txtStyleMedium14.copyWith(
+                                color: ColorsManager.kLightGrey,
+                              )),
                           GestureDetector(
                             // I need to manage the navigation using Routing
                             onTap: () {
                               GoRouter.of(context).push(AppRouter.kSignUpView);
                             },
-                            child: const Text(
+                            child: Text(
                               textAlign: TextAlign.center,
                               'Register',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: ColorsManager.kBlack,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: Styles.txtStyleMedium14
+                                  .copyWith(color: ColorsManager.kBlack),
                             ),
                           ),
                         ],
