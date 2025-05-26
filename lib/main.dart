@@ -29,7 +29,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   await FirebaseAppCheck.instance.activate(
       // androidProvider: AndroidProvider.playIntegrity, // this for production mode
-      androidProvider: AndroidProvider.debug); // this for development modereff
+      androidProvider: AndroidProvider.debug); // this for development mode
   // await FirebaseAppCheck.instance.setTokenAutoRefreshEnabled(true)
 
   // Initialize any necessary services or plugins here

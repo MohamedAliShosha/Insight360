@@ -41,7 +41,6 @@ class NewsItem extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Expanded(
-              // تستخدم هنا بشكل صحيح داخل Row
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
