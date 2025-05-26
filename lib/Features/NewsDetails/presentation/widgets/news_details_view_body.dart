@@ -79,7 +79,7 @@ class NewsDetailsViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
           NewsAction(articleModel: article),
         ],
