@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/service_locator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
@@ -31,6 +32,7 @@ Future<void> main() async {
       // androidProvider: AndroidProvider.playIntegrity, // this for production mode
       androidProvider: AndroidProvider.debug); // this for development mode
   // await FirebaseAppCheck.instance.setTokenAutoRefreshEnabled(true)
+  await SharedPreferences.getInstance();
 
   // Initialize any necessary services or plugins here
 

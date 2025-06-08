@@ -6,6 +6,7 @@ import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignInCub
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_cubit.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
@@ -73,6 +74,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         ],
                       ),
                       CustomTextFormField(
+                        onSaved: (newValue) {
+                          userName = newValue;
+                        },
                         onChanged: (value) {
                           userName = value;
                         },
@@ -82,6 +86,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 16,
                       ),
                       CustomTextFormField(
+                        onSaved: (newValue) {
+                          email = newValue;
+                        },
                         onChanged: (value) {
                           email = value;
                         },
@@ -112,8 +119,20 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       CustomButtonWithoutImage(
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save(); // Save the form data
                             BlocProvider.of<SignInCubit>(context)
-                                .signInMethod(email!, password!);
+                                .signInMethod(email!, password!)
+                                .then(
+                              (_) {
+                                BlocProvider.of<LocalStorageCubit>(context)
+                                    .saveUserData(
+                                  userName: userName!,
+                                  email: email!,
+                                );
+                                print(userName);
+                                print(email);
+                              },
+                            );
                           } else {
                             showSnackBar(context,
                                 message: 'Please fill in all required fields.');
