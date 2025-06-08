@@ -1,6 +1,6 @@
-part of 'local_storage_cubit.dart';
+import 'package:equatable/equatable.dart';
 
-sealed class LocalStorageState extends Equatable {
+class LocalStorageState extends Equatable {
   const LocalStorageState();
 
   @override
@@ -8,3 +8,17 @@ sealed class LocalStorageState extends Equatable {
 }
 
 final class LocalStorageInitial extends LocalStorageState {}
+
+final class LocalStorageLoading extends LocalStorageState {}
+
+final class LocalStorageSuccess extends LocalStorageState {
+  final Map<String, String?>? userData;
+
+  const LocalStorageSuccess({this.userData});
+}
+
+final class LocalStorageError extends LocalStorageState {
+  final String errorMessage;
+
+  const LocalStorageError(this.errorMessage);
+}
