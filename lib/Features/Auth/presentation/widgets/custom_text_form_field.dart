@@ -7,6 +7,7 @@ class CustomTextFormField extends StatefulWidget {
     super.key,
     required this.hintText,
     this.isObscure = false,
+    this.onSaved,
     this.onChanged,
     this.keyboardType,
     this.inputFormatters,
@@ -17,6 +18,8 @@ class CustomTextFormField extends StatefulWidget {
   final Function(String)? onChanged; // Callback function to handle text changes
   final TextInputType? keyboardType; // To identify the type of keyboard to show
   final List<TextInputFormatter>? inputFormatters; // To format the input text
+  final FormFieldSetter<String>?
+      onSaved; // Callback function to handle form submission
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -35,6 +38,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: widget.onSaved,
       keyboardType: widget.keyboardType, // To show Numbers keyboard
       inputFormatters: widget.inputFormatters, // To format the input text
       validator: (data) {
