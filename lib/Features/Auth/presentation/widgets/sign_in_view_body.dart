@@ -94,6 +94,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         },
                         hintText: 'Email',
                       ),
+                      const SizedBox(
+                        height: 16,
+                      ),
                       CustomTextFormField(
                         onSaved: (newValue) {
                           phoneNumber = newValue;

@@ -52,6 +52,9 @@ class ProfileViewBody extends StatelessWidget {
                     state.userData?[LocalStorageKeys.userName] ?? 'No Name';
                 final email =
                     state.userData?[LocalStorageKeys.userEmail] ?? 'No Email';
+                final phoneNumber =
+                    state.userData?[LocalStorageKeys.phoneNumber] ??
+                        'No Phone Number';
 
                 return Column(
                   children: [
@@ -66,6 +69,12 @@ class ProfileViewBody extends StatelessWidget {
                       leftPadding: 32,
                       text: email,
                     ),
+                    const SizedBox(height: 50),
+                    CustomUserInfoContainer(
+                      rightPadding: 32,
+                      leftPadding: 32,
+                      text: phoneNumber,
+                    ),
                   ],
                 );
               } else if (state is LocalStorageError) {
@@ -76,12 +85,6 @@ class ProfileViewBody extends StatelessWidget {
                     style: TextStyle(color: Colors.white));
               }
             },
-          ),
-          const SizedBox(height: 50),
-          const CustomUserInfoContainer(
-            rightPadding: 32,
-            leftPadding: 32,
-            text: 'Phone Number',
           ),
           const SizedBox(height: 200),
           GestureDetector(
