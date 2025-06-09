@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/profile/presentation/widgets/custom_profile_circle_avatar.dart';
 import 'package:news_app/Features/profile/presentation/widgets/custom_user_info_container.dart';
 import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_cubit.dart';
 import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_state.dart';
 import 'package:news_app/core/local%20storage/local_storage_services/local_storage_keys.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -12,8 +15,10 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // استدعاء البيانات عند بناء الصفحة
-    context.read<LocalStorageCubit>().getUserData();
+    // Calling or getting tha data from the cubit when the page is built
+    context
+        .read<LocalStorageCubit>()
+        .getUserData(); // leads to get data from local storage when the page is built
 
     return Scaffold(
       appBar: AppBar(
@@ -82,7 +87,8 @@ class ProfileViewBody extends StatelessWidget {
           const SizedBox(height: 200),
           GestureDetector(
             onTap: () {
-              // logout logic
+              BlocProvider.of<LocalStorageCubit>(context).clearUserData();
+              GoRouter.of(context).go(AppRouter.kSignInView);
             },
             child: const CustomUserInfoContainer(
               rightPadding: 100,
