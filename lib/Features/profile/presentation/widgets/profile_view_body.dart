@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
 import 'package:news_app/Features/profile/presentation/widgets/custom_profile_circle_avatar.dart';
 import 'package:news_app/Features/profile/presentation/widgets/custom_user_info_container.dart';
 import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_cubit.dart';
@@ -86,8 +85,8 @@ class ProfileViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 200),
           GestureDetector(
-            onTap: () {
-              BlocProvider.of<LocalStorageCubit>(context).clearUserData();
+            onTap: () async {
+              await BlocProvider.of<LocalStorageCubit>(context).clearUserData();
               GoRouter.of(context).go(AppRouter.kSignInView);
             },
             child: const CustomUserInfoContainer(

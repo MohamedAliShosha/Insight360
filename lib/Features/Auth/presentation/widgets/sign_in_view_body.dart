@@ -20,7 +20,7 @@ class SignInViewBody extends StatefulWidget {
 }
 
 class _SignInViewBodyState extends State<SignInViewBody> {
-  String? userName, email, password;
+  String? userName, email, password, phoneNumber;
   GlobalKey<FormState> formKey = GlobalKey(); // To manage the form state
   bool isLoading = false; // To manage the loading state
 
@@ -93,6 +93,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           email = value;
                         },
                         hintText: 'Email',
+                      ),
+                      CustomTextFormField(
+                        onSaved: (newValue) {
+                          phoneNumber = newValue;
+                        },
+                        onChanged: (value) {
+                          phoneNumber = value;
+                        },
+                        hintText: 'Phone Number',
                       ),
                       const SizedBox(
                         height: 16,
