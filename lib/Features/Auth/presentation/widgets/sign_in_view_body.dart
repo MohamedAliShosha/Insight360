@@ -20,9 +20,30 @@ class SignInViewBody extends StatefulWidget {
 }
 
 class _SignInViewBodyState extends State<SignInViewBody> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
   String? userName, email, password, phoneNumber;
   GlobalKey<FormState> formKey = GlobalKey(); // To manage the form state
   bool isLoading = false; // To manage the loading state
+
+  @override
+  // dispose role is to free the memory of the controller when the widget is disposed
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _phoneNumberController.dispose();
+    _userNameController.dispose();
+    super.dispose();
+  }
+
+  void clearFields() {
+    _emailController.clear();
+    _passwordController.clear();
+    _phoneNumberController.clear();
+    _userNameController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +95,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         ],
                       ),
                       CustomTextFormField(
+                        controller: _userNameController,
                         onSaved: (newValue) {
                           userName = newValue;
                         },
@@ -86,6 +108,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 16,
                       ),
                       CustomTextFormField(
+                        controller: _emailController,
                         onSaved: (newValue) {
                           email = newValue;
                         },
@@ -98,6 +121,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 16,
                       ),
                       CustomTextFormField(
+                        controller: _phoneNumberController,
                         onSaved: (newValue) {
                           phoneNumber = newValue;
                         },
@@ -110,6 +134,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 16,
                       ),
                       CustomTextFormField(
+                        controller: _passwordController,
                         onChanged: (value) {
                           password = value;
                         },
@@ -132,6 +157,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save(); // Save the form data
+
                             BlocProvider.of<SignInCubit>(context)
                                 .signInMethod(email!, password!)
                                 .then(
@@ -142,8 +168,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                                   email: email!,
                                   phoneNumber: phoneNumber!,
                                 );
-                                print(userName);
-                                print(email);
+                                clearFields(); // Clear the form fields
                               },
                             );
                           } else {
