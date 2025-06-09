@@ -11,7 +11,7 @@ class LocalStorageService {
     await prefs.setString(LocalStorageKeys.userEmail, email); // save user email
 
     await prefs.setString(
-        LocalStorageKeys.phoneNumber, phoneNumber); // save user email
+        LocalStorageKeys.phoneNumber, phoneNumber); // save user phone number
   }
 
   Future<Map<String, String?>> getUserData() async {
@@ -22,6 +22,8 @@ class LocalStorageService {
           prefs.getString(LocalStorageKeys.userName), // get user name
       LocalStorageKeys.userEmail:
           prefs.getString(LocalStorageKeys.userEmail), // get user email
+      LocalStorageKeys.phoneNumber: prefs
+          .getString(LocalStorageKeys.phoneNumber), // get user phone number
     };
   }
 
@@ -29,5 +31,6 @@ class LocalStorageService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(LocalStorageKeys.userName);
     await prefs.remove(LocalStorageKeys.userEmail);
+    await prefs.remove(LocalStorageKeys.phoneNumber);
   }
 }
