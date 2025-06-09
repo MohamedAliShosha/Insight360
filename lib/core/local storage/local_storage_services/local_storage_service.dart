@@ -2,12 +2,16 @@ import 'package:news_app/core/local%20storage/local_storage_services/local_stora
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-  Future<void> saveUserData(String userName, String email) async {
+  Future<void> saveUserData(
+      String userName, String email, String phoneNumber) async {
     final prefs = await SharedPreferences
         .getInstance(); // get instance of shared preferences
     await prefs.setString(
         LocalStorageKeys.userName, userName); // save user name
     await prefs.setString(LocalStorageKeys.userEmail, email); // save user email
+
+    await prefs.setString(
+        LocalStorageKeys.phoneNumber, phoneNumber); // save user email
   }
 
   Future<Map<String, String?>> getUserData() async {

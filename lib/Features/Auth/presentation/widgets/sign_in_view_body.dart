@@ -137,6 +137,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                                     .saveUserData(
                                   userName: userName!,
                                   email: email!,
+                                  phoneNumber: phoneNumber!,
                                 );
                                 print(userName);
                                 print(email);
