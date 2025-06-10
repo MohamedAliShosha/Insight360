@@ -135,7 +135,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                               );
                             } else {
                               showSnackBar(context,
-                                  message: 'Please fill all fields');
+                                  message: 'Please fill all fields.');
                             }
                           },
                           textColor: ColorsManager.kWhite,
