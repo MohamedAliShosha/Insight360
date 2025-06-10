@@ -175,11 +175,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                              textAlign: TextAlign.center,
-                              'Don\'t have an account? ',
-                              style: Styles.txtStyleMedium14.copyWith(
-                                color: ColorsManager.kLightGrey,
-                              )),
+                            textAlign: TextAlign.center,
+                            'Don\'t have an account? ',
+                            style: Styles.txtStyleMedium14.copyWith(
+                              color: ColorsManager.kLightGrey,
+                            ),
+                          ),
                           GestureDetector(
                             // I need to manage the navigation using Routing
                             onTap: () {
