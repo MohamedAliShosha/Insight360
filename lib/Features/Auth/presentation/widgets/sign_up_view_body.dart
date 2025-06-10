@@ -10,6 +10,7 @@ import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
+import 'package:news_app/core/utils/styles.dart';
 import 'package:news_app/core/widgets/custom_redirect_text.dart';
 
 class SignUpViewBody extends StatefulWidget {
@@ -153,13 +154,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(
+                          Text(
                             textAlign: TextAlign.center,
                             'Already have an account? ',
-                            style: TextStyle(
-                              fontSize: 14,
+                            style: Styles.txtStyleMedium14.copyWith(
                               color: ColorsManager.kLightGrey,
-                              fontWeight: FontWeight.w500,
                             ),
                           ),
                           CustomRedirectText(
