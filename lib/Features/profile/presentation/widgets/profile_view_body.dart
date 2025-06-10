@@ -52,9 +52,6 @@ class ProfileViewBody extends StatelessWidget {
                     state.userData?[LocalStorageKeys.userName] ?? 'No Name';
                 final email =
                     state.userData?[LocalStorageKeys.userEmail] ?? 'No Email';
-                final phoneNumber =
-                    state.userData?[LocalStorageKeys.phoneNumber] ??
-                        'No Phone Number';
 
                 return Column(
                   children: [
@@ -68,12 +65,6 @@ class ProfileViewBody extends StatelessWidget {
                       rightPadding: 32,
                       leftPadding: 32,
                       text: email,
-                    ),
-                    const SizedBox(height: 50),
-                    CustomUserInfoContainer(
-                      rightPadding: 32,
-                      leftPadding: 32,
-                      text: phoneNumber,
                     ),
                   ],
                 );
