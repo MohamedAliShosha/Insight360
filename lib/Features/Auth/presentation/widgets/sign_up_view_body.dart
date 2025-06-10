@@ -7,6 +7,7 @@ import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignUpCub
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_cubit.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
@@ -19,9 +20,29 @@ class SignUpViewBody extends StatefulWidget {
 }
 
 class _SignUpViewBodyState extends State<SignUpViewBody> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
   String? userName, email, password, phoneNumber;
   bool isLoading = false;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _phoneNumberController.dispose();
+    _userNameController.dispose();
+    super.dispose();
+  }
+
+  void clearFields() {
+    _emailController.clear();
+    _passwordController.clear();
+    _phoneNumberController.clear();
+    _userNameController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +88,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         ],
                       ),
                       CustomTextFormField(
+                        controller: _userNameController,
+                        onSaved: (newValue) {
+                          userName = newValue;
+                        },
                         onChanged: (data) {
                           userName = data;
                         },
@@ -74,6 +99,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       ),
                       const SizedBox(height: 16),
                       CustomTextFormField(
+                        controller: _emailController,
+                        onSaved: (newValue) {
+                          email = newValue;
+                        },
                         onChanged: (data) {
                           email = data;
                         },
@@ -81,6 +110,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       ),
                       const SizedBox(height: 16),
                       CustomTextFormField(
+                        controller: _phoneNumberController,
+                        onSaved: (newValue) {
+                          phoneNumber = newValue;
+                        },
                         onChanged: (data) {
                           phoneNumber = data;
                         },
@@ -99,25 +132,34 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         hintText: 'Password',
                       ),
                       const SizedBox(height: 32),
-                      GestureDetector(
+                      CustomButtonWithoutImage(
                         onTap: () {
                           if (formKey.currentState!.validate() &&
                               email != null &&
                               password != null) {
                             BlocProvider.of<SignUpCubit>(context)
-                                .signUpMethod(email!, password!);
+                                .signUpMethod(email!, password!)
+                                .then(
+                              (_) {
+                                BlocProvider.of<LocalStorageCubit>(context)
+                                    .saveUserData(
+                                  userName: userName!,
+                                  email: email!,
+                                  phoneNumber: phoneNumber!,
+                                );
+                                clearFields();
+                              },
+                            );
                           } else {
                             showSnackBar(context,
                                 message: 'Please fill all fields');
                           }
                         },
-                        child: const CustomButtonWithoutImage(
-                          textColor: ColorsManager.kWhite,
-                          containerColor: ColorsManager.kPrimaryBlue,
-                          leftPadding: 70,
-                          rightPadding: 70,
-                          text: 'Sign Up',
-                        ),
+                        textColor: ColorsManager.kWhite,
+                        containerColor: ColorsManager.kPrimaryBlue,
+                        leftPadding: 70,
+                        rightPadding: 70,
+                        text: 'Sign Up',
                       ),
                       const SizedBox(height: 16),
                       // const CustomDivider(signUpOrSignIn: 'or sign up with'),
