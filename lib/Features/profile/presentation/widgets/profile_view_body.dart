@@ -23,14 +23,6 @@ class ProfileViewBody extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: ColorsManager.kPrimaryBlue,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: ColorsManager.kWhite),
