@@ -121,19 +121,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 16,
                       ),
                       CustomTextFormField(
-                        controller: _phoneNumberController,
-                        onSaved: (newValue) {
-                          phoneNumber = newValue;
-                        },
-                        onChanged: (value) {
-                          phoneNumber = value;
-                        },
-                        hintText: 'Phone Number',
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      CustomTextFormField(
                         controller: _passwordController,
                         onChanged: (value) {
                           password = value;
@@ -166,7 +153,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                                     .saveUserData(
                                   userName: userName!,
                                   email: email!,
-                                  phoneNumber: phoneNumber!,
                                 );
                                 clearFields(); // Clear the form fields
                               },

@@ -145,7 +145,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                                     .saveUserData(
                                   userName: userName!,
                                   email: email!,
-                                  phoneNumber: phoneNumber!,
                                 );
                                 clearFields();
                               },

@@ -7,13 +7,13 @@ class LocalStorageCubit extends Cubit<LocalStorageState> {
 
   LocalStorageCubit(this._localStorageService) : super(LocalStorageInitial());
 
-  Future<void> saveUserData(
-      {required String userName,
-      required String email,
-      required String phoneNumber}) async {
+  Future<void> saveUserData({
+    required String userName,
+    required String email,
+  }) async {
     try {
       emit(LocalStorageLoading());
-      await _localStorageService.saveUserData(userName, email, phoneNumber);
+      await _localStorageService.saveUserData(userName, email);
       emit(const LocalStorageSuccess());
     } catch (e) {
       emit(LocalStorageError('Failed to save user data: $e'));
