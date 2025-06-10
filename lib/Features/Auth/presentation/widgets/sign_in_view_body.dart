@@ -129,16 +129,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         hintText: 'Password',
                       ),
                       const SizedBox(
-                        height: 24,
-                      ),
-                      Text(
-                        'Forget Password?',
-                        style: Styles.txtStyleBold14.copyWith(
-                          color: ColorsManager.kBlack,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 24,
+                        height: 50,
                       ),
                       CustomButtonWithoutImage(
                         onTap: () async {
@@ -188,7 +179,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                             },
                             child: Text(
                               textAlign: TextAlign.center,
-                              'Register',
+                              'Sign Up',
                               style: Styles.txtStyleMedium14
                                   .copyWith(color: ColorsManager.kBlack),
                             ),

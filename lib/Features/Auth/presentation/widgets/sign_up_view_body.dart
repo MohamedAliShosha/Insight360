@@ -115,7 +115,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           isObscure: true,
                           hintText: 'Password',
                         ),
-                        const SizedBox(height: 32),
+                        const SizedBox(
+                          height: 50,
+                        ),
                         CustomButtonWithoutImage(
                           onTap: () {
                             if (formKey.currentState!.validate() &&
