@@ -1,16 +1,82 @@
-# news_app
+# 📰 News App "Insight 360"
 
-A new Flutter project.
+## 🌟Overview
+- This News App delivers the latest news articles across various categories with a 
+  clean, user-friendly interface.
 
-## Getting Started
+## ✨Features
+1. 🎨 Splash View
+- 🖼️ Displays app logo and name
+- ✨ Smooth animation before login/signup
 
-This project is a starting point for a Flutter application.
+2. 🔐 Authentication Flow
 
-A few resources to get you started if this is your first Flutter project:
+** 📲 Sign-In View:
+- 📧 Name, Email and password fields
+- ➡️ "Sign Up" navigation button
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+** 📝 Sign-Up View:
+- 👤 Name, email, and password fields
+- ↩️ "Already have an account?" option
+- ➡️ "Sign In" navigation button
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. 🏠 Home View
+- 📰 Scrollable news feed (list)
+- 🖼️ Article image, title, short description
+- 🕒 Publication date
+
+4. 📖 News Details View
+- 🖼️ Full article with image & text
+- 👤 Article Source & publish date
+- 🔍 "Preview" button
+
+5. 🔍 Search View
+- 🔎 Search bar
+- 📋 Filtered results based on category
+
+6. 👤 Profile View
+- 📛 Username & email
+- 🚪 Logout button
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
