@@ -9,9 +9,8 @@ import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
-import 'package:news_app/core/utils/styles.dart';
 import 'package:news_app/core/widgets/custom_logo_with_title.dart';
-import 'package:news_app/core/widgets/custom_redirect_text.dart';
+import 'package:news_app/core/widgets/custom_redirect_row.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -151,23 +150,12 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       const SizedBox(
                         height: 16,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            textAlign: TextAlign.center,
-                            'Don\'t have an account? ',
-                            style: Styles.txtStyleMedium14.copyWith(
-                              color: ColorsManager.kLightGrey,
-                            ),
-                          ),
-                          CustomRedirectText(
-                            onTap: () {
-                              GoRouter.of(context).push(AppRouter.kSignUpView);
-                            },
-                            text: 'Sign Up',
-                          ),
-                        ],
+                      CustomRedirectRow(
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kSignUpView);
+                        },
+                        redirectTitle: 'Don\'t have an account?',
+                        signUpOrSignIn: 'Sign Up',
                       ),
                     ],
                   ),
