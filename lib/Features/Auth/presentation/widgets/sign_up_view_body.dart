@@ -10,6 +10,7 @@ import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
+import 'package:news_app/core/widgets/custom_redirect_text.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
@@ -70,115 +71,107 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 shrinkWrap: true,
                 children: [
                   Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'Assets/Images/logo 1 (1).png',
-                              width: 120,
-                              height: 120,
-                              fit: BoxFit.contain,
-                            ),
-                            const SizedBox(width: 0),
-                            const CustomRichText(),
-                          ],
-                        ),
-                        CustomTextFormField(
-                          controller: _userNameController,
-                          onSaved: (newValue) {
-                            userName = newValue;
-                          },
-                          onChanged: (data) {
-                            userName = data;
-                          },
-                          hintText: 'Username',
-                        ),
-                        const SizedBox(height: 16),
-                        CustomTextFormField(
-                          controller: _emailController,
-                          onSaved: (newValue) {
-                            email = newValue;
-                          },
-                          onChanged: (data) {
-                            email = data;
-                          },
-                          hintText: 'Email',
-                        ),
-                        const SizedBox(height: 16),
-                        CustomTextFormField(
-                          onChanged: (data) {
-                            password = data;
-                          },
-                          isObscure: true,
-                          hintText: 'Password',
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        CustomButtonWithoutImage(
-                          onTap: () {
-                            if (formKey.currentState!.validate() &&
-                                email != null &&
-                                password != null) {
-                              BlocProvider.of<SignUpCubit>(context)
-                                  .signUpMethod(email!, password!)
-                                  .then(
-                                (_) {
-                                  BlocProvider.of<LocalStorageCubit>(context)
-                                      .saveUserData(
-                                    userName: userName!,
-                                    email: email!,
-                                  );
-                                  clearFields();
-                                },
-                              );
-                            } else {
-                              showSnackBar(context,
-                                  message: 'Please fill all fields.');
-                            }
-                          },
-                          textColor: ColorsManager.kWhite,
-                          containerColor: ColorsManager.kPrimaryBlue,
-                          leftPadding: 70,
-                          rightPadding: 70,
-                          text: 'Sign Up',
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              textAlign: TextAlign.center,
-                              'Already have an account? ',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: ColorsManager.kLightGrey,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                GoRouter.of(context)
-                                    .push(AppRouter.kSignInView);
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'Assets/Images/logo 1 (1).png',
+                            width: 120,
+                            height: 120,
+                            fit: BoxFit.contain,
+                          ),
+                          const SizedBox(width: 0),
+                          const CustomRichText(),
+                        ],
+                      ),
+                      CustomTextFormField(
+                        controller: _userNameController,
+                        onSaved: (newValue) {
+                          userName = newValue;
+                        },
+                        onChanged: (data) {
+                          userName = data;
+                        },
+                        hintText: 'Username',
+                      ),
+                      const SizedBox(height: 16),
+                      CustomTextFormField(
+                        controller: _emailController,
+                        onSaved: (newValue) {
+                          email = newValue;
+                        },
+                        onChanged: (data) {
+                          email = data;
+                        },
+                        hintText: 'Email',
+                      ),
+                      const SizedBox(height: 16),
+                      CustomTextFormField(
+                        onChanged: (data) {
+                          password = data;
+                        },
+                        isObscure: true,
+                        hintText: 'Password',
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      CustomButtonWithoutImage(
+                        onTap: () {
+                          if (formKey.currentState!.validate() &&
+                              email != null &&
+                              password != null) {
+                            BlocProvider.of<SignUpCubit>(context)
+                                .signUpMethod(email!, password!)
+                                .then(
+                              (_) {
+                                BlocProvider.of<LocalStorageCubit>(context)
+                                    .saveUserData(
+                                  userName: userName!,
+                                  email: email!,
+                                );
+                                clearFields();
                               },
-                              child: const Text(
-                                textAlign: TextAlign.center,
-                                'Sign In',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: ColorsManager.kPrimaryBlue,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
+                            );
+                          } else {
+                            showSnackBar(context,
+                                message: 'Please fill all fields.');
+                          }
+                        },
+                        textColor: ColorsManager.kWhite,
+                        containerColor: ColorsManager.kPrimaryBlue,
+                        leftPadding: 70,
+                        rightPadding: 70,
+                        text: 'Sign Up',
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            textAlign: TextAlign.center,
+                            'Already have an account? ',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: ColorsManager.kLightGrey,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ],
-                        )
-                      ]),
+                          ),
+                          CustomRedirectText(
+                            onTap: () {
+                              GoRouter.of(context).push(AppRouter.kSignInView);
+                            },
+                            text: 'Sign In',
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

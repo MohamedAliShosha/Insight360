@@ -11,6 +11,7 @@ import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
 import 'package:news_app/core/utils/styles.dart';
+import 'package:news_app/core/widgets/custom_redirect_text.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -172,17 +173,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                               color: ColorsManager.kLightGrey,
                             ),
                           ),
-                          GestureDetector(
-                            // I need to manage the navigation using Routing
+                          CustomRedirectText(
                             onTap: () {
                               GoRouter.of(context).push(AppRouter.kSignUpView);
                             },
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              'Sign Up',
-                              style: Styles.txtStyleMedium14
-                                  .copyWith(color: ColorsManager.kBlack),
-                            ),
+                            text: 'Sign Up',
                           ),
                         ],
                       ),
