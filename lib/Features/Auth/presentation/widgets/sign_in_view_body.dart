@@ -4,13 +4,13 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:news_app/Features/Auth/presentation/manager/AuthCubits/SignInCubit/sign_in_cubit.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_button_without_image.dart';
-import 'package:news_app/Features/Auth/presentation/widgets/custom_rich_text.dart';
 import 'package:news_app/Features/Auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:news_app/core/local%20storage/local_storage_cubit/local_storage_cubit.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/functions/snack_bar_function.dart';
 import 'package:news_app/core/utils/styles.dart';
+import 'package:news_app/core/widgets/custom_logo_with_title.dart';
 import 'package:news_app/core/widgets/custom_redirect_text.dart';
 
 class SignInViewBody extends StatefulWidget {
@@ -82,19 +82,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'Assets/Images/logo 1 (1).png',
-                            width: 120,
-                            height: 120,
-                            fit: BoxFit.contain,
-                          ),
-                          const SizedBox(width: 0),
-                          const CustomRichText(),
-                        ],
-                      ),
+                      const CustomLogoWithTitle(),
                       CustomTextFormField(
                         controller: _userNameController,
                         onSaved: (newValue) {
