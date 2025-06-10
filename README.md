@@ -98,6 +98,22 @@ assets/
 └── images/                           # App images and icons
 ```
 
+**Key Points:**
+
+- **core/**: Common utilities, local storage services, and shared widgets used across the app.
+- **features/**: Each feature (Auth, Home, NewsDetails, Search, Profile) is isolated with its own data and presentation layers.
+- **data/**: Contains models and repository implementations for each feature.
+- **presentation/manager/**: State management (Cubit/BLoC) for each feature.
+- **presentation/views/**: Screens/pages for each feature.
+- **presentation/widgets/**: UI components and reusable widgets specific to each feature.
+- **assets/**: Static resources such as images and icons.
+- **main.dart**: App entry point.
+- **injection_container.dart**: Dependency injection setup.
+
+---
+
+**This structure is scalable, modular, and easy to maintain as your app grows.**
+
 
 
 
