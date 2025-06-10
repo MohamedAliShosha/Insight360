@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -108,21 +107,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         },
                         hintText: 'Email',
                       ),
-                      const SizedBox(height: 16),
-                      CustomTextFormField(
-                        controller: _phoneNumberController,
-                        onSaved: (newValue) {
-                          phoneNumber = newValue;
-                        },
-                        onChanged: (data) {
-                          phoneNumber = data;
-                        },
-                        keyboardType: TextInputType.phone,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        hintText: 'Phone Number',
-                      ),
+
                       const SizedBox(height: 16),
                       CustomTextFormField(
                         onChanged: (data) {
