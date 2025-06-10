@@ -82,19 +82,19 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const CustomLogoWithTitle(),
-                      // CustomTextFormField(
-                      //   controller: _userNameController,
-                      //   onSaved: (newValue) {
-                      //     userName = newValue;
-                      //   },
-                      //   onChanged: (value) {
-                      //     userName = value;
-                      //   },
-                      //   hintText: 'Username',
-                      // ),
-                      // const SizedBox(
-                      //   height: 16,
-                      // ),
+                      CustomTextFormField(
+                        controller: _userNameController,
+                        onSaved: (newValue) {
+                          userName = newValue;
+                        },
+                        onChanged: (value) {
+                          userName = value;
+                        },
+                        hintText: 'Username',
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
                       CustomTextFormField(
                         controller: _emailController,
                         onSaved: (newValue) {
