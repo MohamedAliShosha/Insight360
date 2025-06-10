@@ -63,7 +63,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           color: ColorsManager.kPrimaryBlue,
           inAsyncCall: state is SignUpLoading,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.only(right: 16, left: 16, top: 16),
             child: Form(
               key: formKey,
               child: ListView(

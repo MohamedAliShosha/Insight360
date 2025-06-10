@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,6 +17,7 @@ class NewsApp extends StatelessWidget {
         return HeroControllerScope.none(child: child!);
       },
       theme: ThemeData(
+        scaffoldBackgroundColor: ColorsManager.kWhite,
         fontFamily: GoogleFonts.inter().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
