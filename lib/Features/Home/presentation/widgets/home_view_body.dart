@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
           return ListView.builder(
-            itemCount: 19,
+            itemCount: 20,
             itemBuilder: (context, index) {
               return const NewsItemShimmer();
             },
