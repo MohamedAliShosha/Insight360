@@ -5,7 +5,7 @@
   clean, user-friendly interface.
 
  <p align="center">
-  <img src="Assets/screenShots/All Views.jpg" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/Insight_all_views.png" alt="App Overview" width="800"/>
 </p>
 
 
@@ -15,7 +15,7 @@
   - ✨ Smooth animation before login/signup
 
   <p align="center">
-  <img src="Assets/screenShots/1. Splash View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/splash_view.png" alt="App Overview" width="800"/>
 </p>
 
 2. 🔐 Authentication Flow
@@ -25,7 +25,7 @@
   - ➡️ "Sign Up" navigation button
 
   <p align="center">
-  <img src="Assets/screenShots/Sign-In View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/sign_in_view.png" alt="App Overview" width="800"/>
 </p>
 
 ** 📝 Sign-Up View:
@@ -34,7 +34,7 @@
   - ➡️ "Sign In" navigation button
 
   <p align="center">
-  <img src="Assets/screenShots/Sign-up View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/sign_up_view.png" alt="App Overview" width="800"/>
 </p>
 
 3. 🏠 News Feed
@@ -43,7 +43,7 @@
   - 🕒 Publication date
 
   <p align="center">
-  <img src="Assets/screenShots/News Feed View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/news_feed_view.png" alt="App Overview" width="800"/>
 </p>
 
 4. 📖 News Details View
@@ -52,7 +52,7 @@
   - 🔍 "Preview" button
 
   <p align="center">
-  <img src="Assets/screenShots/News Details View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/news_details_view.png" alt="App Overview" width="800"/>
 </p>
 
 5. 🔍 Search View
@@ -60,11 +60,11 @@
   - 📋 Filtered results based on category
 
   <p align="center">
-  <img src="Assets/screenShots/Empty Search View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/empyy_search_view.png" alt="App Overview" width="800"/>
 </p>
 
   <p align="center">
-  <img src="Assets/screenShots/Search View Results.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/search_results_view.png" alt="App Overview" width="800"/>
 </p>
 
 6. 👤 Profile View
@@ -72,7 +72,7 @@
   - 🚪 Logout button
 
 <p align="center">
-  <img src="Assets/screenShots/User Profile View.png" alt="App Overview" width="800"/>
+  <img src="Assets/screenShots/profile_view.png" alt="App Overview" width="800"/>
 </p>
 
 
