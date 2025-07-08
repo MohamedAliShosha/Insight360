@@ -4,10 +4,19 @@
 - This News App delivers the latest news articles across various categories with a 
   clean, user-friendly interface.
 
+ <p align="center">
+  <img src="Assets/screenShots/All Views.jpg" alt="App Overview" width="800"/>
+</p>
+
+
 ## ✨Features
 1. 🎨 Splash View
   - 🖼️ Displays app logo and name
   - ✨ Smooth animation before login/signup
+
+  <p align="center">
+  <img src="Assets/screenShots/1. Splash View.png" alt="App Overview" width="800"/>
+</p>
 
 2. 🔐 Authentication Flow
 
@@ -15,28 +24,57 @@
   - 📧 Name, Email and password fields
   - ➡️ "Sign Up" navigation button
 
+  <p align="center">
+  <img src="Assets/screenShots/Sign-In View.png" alt="App Overview" width="800"/>
+</p>
+
 ** 📝 Sign-Up View:
   - 👤 Name, email, and password fields
   - ↩️ "Already have an account?" option
   - ➡️ "Sign In" navigation button
 
-3. 🏠 Home View
+  <p align="center">
+  <img src="Assets/screenShots/Sign-up View.png" alt="App Overview" width="800"/>
+</p>
+
+3. 🏠 News Feed
   - 📰 Scrollable news feed (list)
   - 🖼️ Article image, title, short description
   - 🕒 Publication date
+
+  <p align="center">
+  <img src="Assets/screenShots/News Feed View.png" alt="App Overview" width="800"/>
+</p>
 
 4. 📖 News Details View
   - 🖼️ Full article with image & text
   - 👤 Article Source & publish date
   - 🔍 "Preview" button
 
+  <p align="center">
+  <img src="Assets/screenShots/News Details View.png" alt="App Overview" width="800"/>
+</p>
+
 5. 🔍 Search View
   - 🔎 Search bar
   - 📋 Filtered results based on category
 
+  <p align="center">
+  <img src="Assets/screenShots/Empty Search View.png" alt="App Overview" width="800"/>
+</p>
+
+  <p align="center">
+  <img src="Assets/screenShots/Search View Results.png" alt="App Overview" width="800"/>
+</p>
+
 6. 👤 Profile View
   - 📛 Username & email
   - 🚪 Logout button
+
+<p align="center">
+  <img src="Assets/screenShots/User Profile View.png" alt="App Overview" width="800"/>
+</p>
+
 
 ## 🏗️ Architecture
   - 🧩 MVVM pattern
