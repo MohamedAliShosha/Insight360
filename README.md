@@ -10,7 +10,7 @@
 
 
 ## ✨Features
-1. 🎨 Splash View
+🎨 Splash View
   - 🖼️ Displays app logo and name
   - ✨ Smooth animation before login/signup
 
@@ -20,7 +20,7 @@
 
 ** 🔐 Authentication Flow
 
-2. 📲 Sign-In View:
+📲 Sign-In View:
   - 📧 Name, Email and password fields
   - ➡️ "Sign Up" navigation button
 
@@ -28,7 +28,7 @@
   <img src="Assets/screenShots/sign_in_view.png" alt="App Overview" width="800"/>
 </p>
 
-3. 📝 Sign-Up View:
+📝 Sign-Up View:
   - 👤 Name, email, and password fields
   - ↩️ "Already have an account?" option
   - ➡️ "Sign In" navigation button
@@ -37,7 +37,7 @@
   <img src="Assets/screenShots/sign_up_view.png" alt="App Overview" width="800"/>
 </p>
 
-4. 🏠 News Feed
+🏠 News Feed
   - 📰 Scrollable news feed (list)
   - 🖼️ Article image, title, short description
   - 🕒 Publication date
@@ -46,7 +46,7 @@
   <img src="Assets/screenShots/news_feed_view.png" alt="App Overview" width="800"/>
 </p>
 
-5. 📖 News Details View
+📖 News Details View
   - 🖼️ Full article with image & text
   - 👤 Article Source & publish date
   - 🔍 "Preview" button
@@ -55,7 +55,7 @@
   <img src="Assets/screenShots/news_details_view.png" alt="App Overview" width="800"/>
 </p>
 
-6. 🔍 Search View
+🔍 Search View
   - 🔎 Search bar
   - 📋 Filtered results based on category
 
@@ -67,7 +67,7 @@
   <img src="Assets/screenShots/search_results_view.png" alt="App Overview" width="800"/>
 </p>
 
-7. 👤 Profile View
+👤 Profile View
   - 📛 Username & email
   - 🚪 Logout button
 
