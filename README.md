@@ -75,6 +75,16 @@
   <img src="Assets/screenShots/profile_view.png" alt="App Overview" width="800"/>
 </p>
 
+## 🛠️ Tech Stack
+
+📱 Frontend
+- Framework: Flutter
+- State Management: Bloc
+
+🌐 Backend
+- API: [Rest API]
+- Firebase Authentication
+
 
 ## 🏗️ Architecture
   - 🧩 MVVM pattern
