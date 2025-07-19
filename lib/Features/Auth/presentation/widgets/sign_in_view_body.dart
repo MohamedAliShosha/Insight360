@@ -122,7 +122,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       CustomButtonWithoutImage(
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            formKey.currentState!.save(); // Save the form data
+                            formKey.currentState!.save(); // Save the form data a we used onSaved in the textField 
 
                             BlocProvider.of<SignInCubit>(context)
                                 .signInMethod(email!, password!)

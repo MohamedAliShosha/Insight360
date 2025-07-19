@@ -18,9 +18,9 @@ class SearchCubit extends Cubit<SearchState> {
     var result = await searchRepo.getSearchedNews(
         apiKey: apiKey, country: country, category: category);
 
-    result.fold((failuire) {
+    result.fold((failure) {
       emit(
-        SearchFailure(errorMessage: failuire.errorMessage),
+        SearchFailure(errorMessage: failure.errorMessage),
       );
     }, (article) {
       emit(

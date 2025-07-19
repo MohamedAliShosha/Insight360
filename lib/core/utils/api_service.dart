@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/constants.dart';
 
 class ApiService {
   final String _baseUrl = Constants.baseUrl;

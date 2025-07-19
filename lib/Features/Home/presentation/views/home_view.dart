@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:news_app/Features/Home/data/repos/home_repo_implement.dart';
 import 'package:news_app/Features/Home/presentation/manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
 import 'package:news_app/Features/Home/presentation/widgets/home_view_body.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/constants.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/service_locator.dart';
