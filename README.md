@@ -9,7 +9,7 @@
 </p>
 
 
-## ✨Features
+## ✨Views
 🎨 Splash View
   - 🖼️ Displays app logo and name
   - ✨ Smooth animation before login/signup
