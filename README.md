@@ -89,7 +89,7 @@
 ## 🏗️ Architecture
   - 🧩 MVVM pattern
   - 📡 REST API integration
-  - 💽 Local caching
+  - 💽 Local storage
 
 ```
 lib/
