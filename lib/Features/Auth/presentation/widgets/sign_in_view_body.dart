@@ -40,8 +40,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
 
   void clearFields() {
     _emailController.clear();
-    _passwordController.clear();
     _phoneNumberController.clear();
+    _passwordController.clear();
     _userNameController.clear();
   }
 

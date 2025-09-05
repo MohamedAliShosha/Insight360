@@ -22,7 +22,7 @@ class SignUpViewBody extends StatefulWidget {
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
+  
   final TextEditingController _userNameController = TextEditingController();
   String? userName, email, password, phoneNumber;
   bool isLoading = false;
@@ -32,7 +32,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    _phoneNumberController.dispose();
     _userNameController.dispose();
     super.dispose();
   }
@@ -40,7 +39,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   void clearFields() {
     _emailController.clear();
     _passwordController.clear();
-    _phoneNumberController.clear();
     _userNameController.clear();
   }
 
