@@ -9,72 +9,103 @@
 </p>
 
 
-## ✨Views
-🎨 Splash View
-  - 🖼️ Displays app logo and name
-  - ✨ Smooth animation before login/signup
+## 🎨 Views
 
-  <p align="center">
-  <img src="Assets/screenShots/splash_view.png" alt="App Overview" width="800"/>
+🖼️ 1. Splash View:
+- Displays the Insight 360° logo prominently in the center.
+- Features a “Get Started” button that leads to the authentication flow.
+- Uses a dark blue and orange theme, creating a professional news-style appearance.
+
+<p align="left">
+  <img src="Assets/screenShots/splash.png" alt="App Overview" height="800"/>
 </p>
 
-** 🔐 Authentication Flow
+##
 
-📲 Sign-In View:
-  - 📧 Name, Email and password fields
-  - ➡️ "Sign Up" navigation button
+🔐 2. Login View:
+- Includes input fields for Username, Email, and Password.
+- Contains a “Sign In” button.
+- Provides a redirect link for users without an account: “Don’t have an account? Sign Up.”
+- Minimal and clean design following the app’s branding.
 
-  <p align="center">
-  <img src="Assets/screenShots/sign_in_view.png" alt="App Overview" width="800"/>
+<p align="left">
+  <img src="Assets/screenShots/login.png" alt="App Overview" height="800"/>
 </p>
 
-📝 Sign-Up View:
-  - 👤 Name, email, and password fields
-  - ↩️ "Already have an account?" option
-  - ➡️ "Sign In" navigation button
+##
 
-  <p align="center">
-  <img src="Assets/screenShots/sign_up_view.png" alt="App Overview" width="800"/>
+📝 3. Sign-Up View:
+- Similar layout to the sign-in view but for new user registration.
+- Fields: Username, Email, Password.- Bottom has two buttons:
+- “Sign Up” button and a link for existing users: “Already have an account? Sign In.”
+- Ensures consistent visual identity with sign-in page.
+  
+<p align="left">
+  <img src="Assets/screenShots/sign_up.png" alt="App Overview" height="800"/>
 </p>
 
-🏠 News Feed
-  - 📰 Scrollable news feed (list)
-  - 🖼️ Article image, title, short description
-  - 🕒 Publication date
+##
 
-  <p align="center">
-  <img src="Assets/screenShots/news_feed_view.png" alt="App Overview" width="800"/>
+🏠 4. Home View:
+- Displays a news feed list with article images, titles, publication dates, and sources (e.g., BBC, NPR).
+- Each item represents a clickable news article leading to a detailed view.
+- Bottom Navigation Bar provides access to:
+- 🏠 Home / 🔍 Search / 👤 Profile
+ 
+
+<p align="left">
+  <img src="Assets/screenShots/home.png" alt="App Overview" height="800"/>
 </p>
 
-📖 News Details View
-  - 🖼️ Full article with image & text
-  - 👤 Article Source & publish date
-  - 🔍 "Preview" button
+##
 
-  <p align="center">
-  <img src="Assets/screenShots/news_details_view.png" alt="App Overview" width="800"/>
+📰 5. News Details View:
+- Shows featured article image at the top.
+- Displays headline, publication date, and source.
+- Contains a Preview button (likely opens full article in browser or detailed reader view).
+ 
+
+<p align="left">
+  <img src="Assets/screenShots/details.png" alt="App Overview" height="800"/>
 </p>
 
-🔍 Search View
-  - 🔎 Search bar
-  - 📋 Filtered results based on category
+##
 
-  <p align="center">
-  <img src="Assets/screenShots/empyy_search_view.png" alt="App Overview" width="800"/>
+🔍 6. Search View (Empty State):
+- Top search bar allows users to enter keywords.
+- Displays a message “No Results Yet.” when no search results are available.
+- Dark background consistent with the app theme.
+ 
+
+<p align="left">
+  <img src="Assets/screenShots/search1.png" alt="App Overview" height="800"/>
 </p>
 
-  <p align="center">
-  <img src="Assets/screenShots/search_results_view.png" alt="App Overview" width="800"/>
+##
+
+📚 7. Search Results View:
+- Same layout as the empty search view but populated with news articles.
+- Each result shows:
+- Thumbnail image. / Article title. / Source and publication date.
+- Scrollable vertical list for multiple results.
+ 
+
+<p align="left">
+  <img src="Assets/screenShots/search2.png" alt="App Overview" height="800"/>
 </p>
 
-👤 Profile View
-  - 📛 Username & email
-  - 🚪 Logout button
+##
 
-<p align="center">
-  <img src="Assets/screenShots/profile_view.png" alt="App Overview" width="800"/>
+👤 8. Profile View:
+- Displays a user avatar placeholder at the top.
+- Shows username and email address in centered cards.
+- Includes a Logout button to end the session.
+- Clean, simple layout focused on user info.
+ 
+
+<p align="left">
+  <img src="Assets/screenShots/profile.png" alt="App Overview" height="800"/>
 </p>
-
 ## 🛠️ Tech Stack
 
 📱 Frontend
