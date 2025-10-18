@@ -1,8 +1,12 @@
-# Insight 360 "📰 News App"
+# 🧠 Insight 360°
 
 ## 🌟Overview
-- This News App delivers the latest news articles across various categories with a 
-  clean, user-friendly interface.
+- A modern mobile app for discovering and exploring global news, featuring:
+- 🗞️ Real-time news updates from trusted sources
+- ✨ Personalized and category-based article browsing
+- 📰 Clean, reader-friendly design for an immersive experience
+- 🔍 Smart search to find stories that matter to you
+
 
  <p align="center">
   <img src="Assets/screenShots/Insight_all_views.png" alt="App Overview" width="800"/>
