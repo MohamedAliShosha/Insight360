@@ -9,7 +9,7 @@
 </p>
 
 
-## ✨Features
+## ✨Views
 🎨 Splash View
   - 🖼️ Displays app logo and name
   - ✨ Smooth animation before login/signup
@@ -89,7 +89,7 @@
 ## 🏗️ Architecture
   - 🧩 MVVM pattern
   - 📡 REST API integration
-  - 💽 Local caching
+  - 💽 Local storage
 
 ```
 lib/
