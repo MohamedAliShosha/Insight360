@@ -1,4 +1,4 @@
-# 📰 News App "Insight 360"
+# Insight 360 "📰 News App"
 
 ## 🌟Overview
 - This News App delivers the latest news articles across various categories with a 
