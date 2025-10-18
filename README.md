@@ -11,7 +11,7 @@
 
 ## 🎨 Views
 
-🖼️ 1. Splash View:
+🖼️ 1. Onboarding View:
 - Displays the Insight 360° logo prominently in the center.
 - Features a “Get Started” button that leads to the authentication flow.
 - Uses a dark blue and orange theme, creating a professional news-style appearance.
@@ -106,6 +106,7 @@
 <p align="left">
   <img src="Assets/screenShots/profile.png" alt="App Overview" height="800"/>
 </p>
+
 ## 🛠️ Tech Stack
 
 📱 Frontend
