@@ -40,7 +40,7 @@
 
 📝 3. Sign-Up View:
 - Similar layout to the sign-in view but for new user registration.
-- Fields: Name, Email, Phone, Password, and PasswordConfirmation- Bottom has two buttons:
+- Fields: Name, Email, Phone Number, Password, and Password Confirmation- Bottom has two buttons:
 - “Sign Up” button and a link for existing users: “Already have an account? Sign In.”
 - Ensures consistent visual identity with sign-in page.
   
