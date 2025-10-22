@@ -27,7 +27,7 @@
 ##
 
 🔐 2. Login View:
-- Includes input fields for Username, Email, and Password.
+- Includes input fields for Email, and Password.
 - Contains a “Sign In” button.
 - Provides a redirect link for users without an account: “Don’t have an account? Sign Up.”
 - Minimal and clean design following the app’s branding.
@@ -40,7 +40,7 @@
 
 📝 3. Sign-Up View:
 - Similar layout to the sign-in view but for new user registration.
-- Fields: Username, Email, Password.- Bottom has two buttons:
+- Fields: Name, Email, Phone, Password, and PasswordConfirmation- Bottom has two buttons:
 - “Sign Up” button and a link for existing users: “Already have an account? Sign In.”
 - Ensures consistent visual identity with sign-in page.
   
