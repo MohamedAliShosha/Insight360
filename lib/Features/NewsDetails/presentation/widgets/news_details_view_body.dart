@@ -75,7 +75,7 @@ class NewsDetailsViewBody extends StatelessWidget {
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
-                  color: ColorsManager.kBlack),
+                  color: ColorsManager.kBlackColor),
             ),
           ),
           const SizedBox(

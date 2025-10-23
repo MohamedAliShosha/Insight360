@@ -10,7 +10,7 @@ class CustomProfileCircleAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: CircleAvatar(
-        backgroundColor: ColorsManager.kWhite,
+        backgroundColor: ColorsManager.kWhiteColor,
         radius: 50,
         child: Icon(
           Icons.person,

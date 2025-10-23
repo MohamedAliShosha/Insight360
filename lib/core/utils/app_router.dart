@@ -1,19 +1,26 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/Features/Auth/presentation/views/sign_in_view.dart';
-import 'package:news_app/Features/Auth/presentation/views/sign_up_view.dart';
+import 'package:news_app/Features/auth/login/data/repos/login_repo_implement.dart';
+import 'package:news_app/Features/auth/login/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:news_app/Features/auth/login/presentation/views/login_view.dart';
+import 'package:news_app/Features/auth/login/services/login_service.dart';
+import 'package:news_app/Features/auth/sign_up/data/repos/sign_up_repo_implement.dart';
+import 'package:news_app/Features/auth/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:news_app/Features/auth/sign_up/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
 import 'package:news_app/Features/Search/data/repos/search_repo_implement.dart';
 import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
 import 'package:news_app/Features/Search/presentation/views/search_view.dart';
+import 'package:news_app/Features/auth/sign_up/services/sign_up_service.dart';
 import 'package:news_app/Features/profile/presentation/views/profile_view.dart';
 import 'package:news_app/Features/splash/presentation/views/splash_view.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 
 abstract class AppRouter {
-  static const kSignInView = '/signInView';
+  static const kLoginView = '/loginView';
   static const kSignUpView = '/signUpView';
   static const kHomeView = '/homeView';
   static const kNewsDetailsView = '/newsDetailsView';
@@ -29,15 +36,32 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: kSignInView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: SignInView(),
+        path: kLoginView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: BlocProvider(
+              create: (context) => LoginCubit(
+                    LoginRepoImplement(
+                      LoginService(
+                        Dio(),
+                      ),
+                    ),
+                  ),
+              child: const LoginView()),
         ),
       ),
       GoRoute(
         path: kSignUpView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: SignUpView(),
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: BlocProvider(
+            create: (context) => SignUpCubit(
+              SignUpRepoImplement(
+                SignUpService(
+                  Dio(),
+                ),
+              ),
+            ),
+            child: const SignUpView(),
+          ),
         ),
       ),
       GoRoute(

@@ -1,11 +1,26 @@
-import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/service_locator.dart';
+import 'package:news_app/core/utils/shared_pref_helper.dart';
+import 'package:news_app/core/utils/shared_pref_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+//TODO => Add user check method
+Future<void> checkIfUserIsLoggedIn() async {
+  // Getting userToken and storing it in a variable
+  final userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  // Check if the userToken is not null and not empty
+
+  if (userToken != null && userToken.isNotEmpty) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
+}
 
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
@@ -17,7 +32,7 @@ class NewsApp extends StatelessWidget {
         return HeroControllerScope.none(child: child!);
       },
       theme: ThemeData(
-        scaffoldBackgroundColor: ColorsManager.kWhite,
+        scaffoldBackgroundColor: ColorsManager.kWhiteColor,
         fontFamily: GoogleFonts.inter().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
@@ -27,16 +42,11 @@ class NewsApp extends StatelessWidget {
 }
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await checkIfUserIsLoggedIn();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   setUpServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await FirebaseAppCheck.instance.activate(
-      // androidProvider: AndroidProvider.playIntegrity, // this for production mode
-      androidProvider: AndroidProvider.debug); // this for development mode
-  // await FirebaseAppCheck.instance.setTokenAutoRefreshEnabled(true)
   await SharedPreferences.getInstance();
-
-  // Initialize any necessary services or plugins here
-
   runApp(const NewsApp());
 }

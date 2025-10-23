@@ -33,7 +33,7 @@ class NewsItem extends StatelessWidget {
                   image: article.urlToImage != null &&
                           article.urlToImage!.isNotEmpty
                       ? NetworkImage(article.urlToImage!)
-                      : const AssetImage('Assets/Images/general.png')
+                      : const AssetImage('Assets/images/general.png')
                           as ImageProvider,
                 ),
                 borderRadius: BorderRadius.circular(8),

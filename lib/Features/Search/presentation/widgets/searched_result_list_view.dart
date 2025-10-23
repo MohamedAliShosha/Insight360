@@ -59,7 +59,7 @@ class SearchedResultListView extends StatelessWidget {
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
-                                color: ColorsManager.kWhite,
+                                color: ColorsManager.kWhiteColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
                               ),
@@ -82,7 +82,7 @@ class SearchedResultListView extends StatelessWidget {
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
-                                color: ColorsManager.kWhite,
+                                color: ColorsManager.kWhiteColor,
                               ),
                             ),
                           ],

@@ -14,42 +14,42 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white,
-          backgroundColor: ColorsManager.kPrimaryBlue,
-          items: [
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.white),
-              label: 'Home',
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        backgroundColor: ColorsManager.kPrimaryBlue,
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.white),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () => GoRouter.of(context).push(AppRouter.kSearchView),
+              child: const Icon(Icons.search, color: Colors.white),
             ),
-            BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () => GoRouter.of(context).push(AppRouter.kSearchView),
-                child: const Icon(Icons.search, color: Colors.white),
-              ),
-              label: 'Search',
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+              onTap: () => GoRouter.of(context).push(AppRouter.kProfileView),
+              child: const Icon(Icons.person, color: Colors.white),
             ),
-            BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () => GoRouter.of(context).push(AppRouter.kProfileView),
-                child: const Icon(Icons.person, color: Colors.white),
-              ),
-              label: 'Profile',
-            ),
-          ],
-        ),
-        body: BlocProvider(
-          create: (context) => TopHeadLinesCubit(
-            getIt<HomeRepoImplement>(),
-          )..getTopHeadLines(
-              apiKey: Constants.apiKey,
-              country: 'us',
-              category: 'general',
-            ),
-          child: const HomeViewBody(),
+            label: 'Profile',
+          ),
+        ],
+      ),
+      body: BlocProvider(
+        create: (context) => TopHeadLinesCubit(
+          getIt<HomeRepoImplement>(),
+        )..getTopHeadLines(
+            apiKey: Constants.apiKey,
+            country: 'us',
+            category: 'general',
+          ),
+        child: const SafeArea(
+          child: HomeViewBody(),
         ),
       ),
     );

@@ -12,7 +12,7 @@ class CustomErrorWidget extends StatelessWidget {
         textAlign: TextAlign.center,
         errorMessage,
         style: const TextStyle(
-          color: ColorsManager.kWhite,
+          color: ColorsManager.kWhiteColor,
           fontSize: 18,
           fontWeight: FontWeight.w600, // SemiBold
         ),

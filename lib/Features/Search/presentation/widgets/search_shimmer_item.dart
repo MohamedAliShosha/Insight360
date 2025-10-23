@@ -11,7 +11,7 @@ class SearchShimmerItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Shimmer.fromColors(
         baseColor: ColorsManager.kLightGrey.withOpacity(0.3),
-        highlightColor: ColorsManager.kWhite.withOpacity(0.6),
+        highlightColor: ColorsManager.kWhiteColor.withOpacity(0.6),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -19,7 +19,7 @@ class SearchShimmerItem extends StatelessWidget {
               height: 100,
               width: 140,
               decoration: BoxDecoration(
-                color: ColorsManager.kWhite,
+                color: ColorsManager.kWhiteColor,
                 borderRadius: BorderRadius.circular(8),
               ),
             ),

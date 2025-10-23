@@ -21,7 +21,7 @@ class CustomUserInfoContainer extends StatelessWidget {
         width: double.infinity,
         height: 50,
         decoration: BoxDecoration(
-          color: ColorsManager.kWhite,
+          color: ColorsManager.kWhiteColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(

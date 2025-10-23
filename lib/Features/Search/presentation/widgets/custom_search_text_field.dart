@@ -14,10 +14,10 @@ class CustomSearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       style: const TextStyle(
-        color: ColorsManager.kWhite,
+        color: ColorsManager.kWhiteColor,
       ),
       controller: _controller,
-      cursorColor: ColorsManager.kWhite,
+      cursorColor: ColorsManager.kWhiteColor,
       decoration: InputDecoration(
         hintText: 'Search by Category',
         suffixIcon: IconButton(
@@ -36,19 +36,19 @@ class CustomSearchTextField extends StatelessWidget {
           },
           icon: const Icon(
             Icons.search,
-            color: ColorsManager.kWhite,
+            color: ColorsManager.kWhiteColor,
           ),
         ),
         focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorsManager.kWhite),
+          borderSide: BorderSide(color: ColorsManager.kWhiteColor),
         ),
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorsManager.kWhite),
+          borderSide: BorderSide(color: ColorsManager.kWhiteColor),
         ),
         border: const OutlineInputBorder(),
         labelText: 'Search',
         labelStyle: const TextStyle(
-          color: ColorsManager.kWhite,
+          color: ColorsManager.kWhiteColor,
         ),
       ),
     );
