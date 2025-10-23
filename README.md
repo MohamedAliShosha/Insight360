@@ -119,8 +119,6 @@
 
 🌐 Backend
 - API: [Rest API]
-- Firebase Authentication
-
 
 ## 🏗️ Architecture
   - 🧩 MVVM pattern
