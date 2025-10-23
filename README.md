@@ -1,8 +1,12 @@
-# 📰 News App "Insight 360"
+# 🧠 Insight 360°
 
 ## 🌟Overview
-- This News App delivers the latest news articles across various categories with a 
-  clean, user-friendly interface.
+- A modern mobile app for discovering and exploring global news, featuring:
+- 🗞️ Real-time news updates from trusted sources
+- ✨ Personalized and category-based article browsing
+- 📰 Clean, reader-friendly design for an immersive experience
+- 🔍 Smart search to find stories that matter to you
+
 
  <p align="center">
   <img src="Assets/screenShots/Insight_all_views.png" alt="App Overview" width="800"/>
@@ -11,7 +15,7 @@
 
 ## 🎨 Views
 
-🖼️ 1. Splash View:
+🖼️ 1. Onboarding View:
 - Displays the Insight 360° logo prominently in the center.
 - Features a “Get Started” button that leads to the authentication flow.
 - Uses a dark blue and orange theme, creating a professional news-style appearance.
@@ -106,6 +110,7 @@
 <p align="left">
   <img src="Assets/screenShots/profile.png" alt="App Overview" height="800"/>
 </p>
+
 ## 🛠️ Tech Stack
 
 📱 Frontend
