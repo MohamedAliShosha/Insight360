@@ -131,10 +131,7 @@ lib/
 ├── core/
 │   ├── utils/                        # App-wide utilities (router, styles, service locator, etc.)
 │   ├── widgets/                      # Shared/reusable widgets (loading, error, etc.)
-│   └── local_storage/
-│       ├── local_storage_cubit/      # Cubit and states for local storage
-│       └── local_storage_services/   # SharedPreferences service, keys
-│
+│  
 ├── features/
 │   ├── auth/
 │   │   ├── data/                     # Models, repositories, data sources for authentication
@@ -146,7 +143,7 @@ lib/
 │   ├── home/
 │   │   ├── data/
 │   │   │   ├── models/               # News/article models
-│   │   │   └── repos/                # Home repo implementations
+│   │   │   └── repos/                # Home repo implementation
 │   │   └── presentation/
 │   │       ├── manager/              # Cubits, states for home
 │   │       ├── views/                # Home screen
@@ -173,7 +170,6 @@ lib/
 │           ├── views/                # Profile screen
 │           └── widgets/              # Profile widgets (avatar, info, etc.)
 │
-├── injection_container.dart          # Dependency injection setup (get_it)
 └── main.dart                         # App entry point
 
 assets/
