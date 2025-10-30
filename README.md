@@ -15,7 +15,7 @@
 
 ## 🎨 Views
 
-🖼️ 1. Onboarding View:
+🖼️ Onboarding View:
 - Displays the Insight 360° logo prominently in the center.
 - Features a “Get Started” button that leads to the authentication flow.
 - Uses a dark blue and orange theme, creating a professional news-style appearance.
@@ -26,7 +26,7 @@
 
 ##
 
-🔐 2. Login View:
+🔐 Login View:
 - Includes input fields for Email, and Password.
 - Contains a “Sign In” button.
 - Provides a redirect link for users without an account: “Don’t have an account? Sign Up.”
@@ -38,7 +38,7 @@
 
 ##
 
-📝 3. Sign-Up View:
+📝 Sign-Up View:
 - Similar layout to the sign-in view but for new user registration.
 - Fields: Name, Email, Phone Number, Password, and Password Confirmation- Bottom has two buttons:
 - “Sign Up” button and a link for existing users: “Already have an account? Sign In.”
@@ -50,7 +50,7 @@
 
 ##
 
-🏠 4. Home View:
+🏠 Home View:
 - Displays a news feed list with article images, titles, publication dates, and sources (e.g., BBC, NPR).
 - Each item represents a clickable news article leading to a detailed view.
 - Bottom Navigation Bar provides access to:
@@ -63,7 +63,7 @@
 
 ##
 
-📰 5. News Details View:
+📰 News Details View:
 - Shows featured article image at the top.
 - Displays headline, publication date, and source.
 - Contains a Preview button (likely opens full article in browser or detailed reader view).
@@ -75,7 +75,7 @@
 
 ##
 
-🔍 6. Search View (Empty State):
+🔍 Search View (Empty State):
 - Top search bar allows users to enter keywords.
 - Displays a message “No Results Yet.” when no search results are available.
 - Dark background consistent with the app theme.
@@ -87,7 +87,7 @@
 
 ##
 
-📚 7. Search Results View:
+📚 Search Results View:
 - Same layout as the empty search view but populated with news articles.
 - Each result shows:
 - Thumbnail image. / Article title. / Source and publication date.
@@ -100,7 +100,7 @@
 
 ##
 
-👤 8. Profile View:
+👤 Profile View:
 - Displays a user avatar placeholder at the top.
 - Shows username and email address in centered cards.
 - Includes a Logout button to end the session.
