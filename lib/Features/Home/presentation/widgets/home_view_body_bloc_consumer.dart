@@ -23,43 +23,42 @@ class _HomeViewBodyBlocConsumerState extends State<HomeViewBodyBlocConsumer> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TopHeadLinesCubit, TopHeadLinesState>(
-      listener: (context, state) {
-        if (state is TopHeadLinesSuccess) {
-          // add the coming books to the books list
-          articles.addAll(state.articles);
-        }
+        listener: (context, state) {
+      if (state is TopHeadLinesSuccess) {
+        // add the coming books to the books list
+        articles.addAll(state.articles);
+      }
 
-        if (state is TopHeadLinesPaginationFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            buildErrorSnackBar(state.errorMessage),
-          );
-        }
-
-        if (state is TopHeadLinesLoading) {
-          ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return const NewsItemShimmer();
-            },
-          );
-        }
-      },
-      builder: (context, state) {
-        if (state is TopHeadLinesSuccess ||
-            state is TopHeadLinesPaginationLoading ||
-            state is TopHeadLinesFailure) {
-          return NewsListView(
-            articles: articles,
-          );
-        } else if (state is TopHeadLinesFailure) {
-          return CustomErrorWidget(
-            errorMessage: state.errorMessage,
-          );
-        }
-        return NewsListView(
-          articles: articles,
+      if (state is TopHeadLinesPaginationFailure) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          buildErrorSnackBar(state.errorMessage),
         );
-      },
-    );
+      }
+    }, builder: (context, state) {
+      // Loading → show shimmer
+      if (state is TopHeadLinesLoading) {
+        return ListView.builder(
+          itemCount: 20,
+          itemBuilder: (_, __) => const NewsItemShimmer(),
+        );
+      }
+
+      // Error
+      if (state is TopHeadLinesFailure) {
+        return CustomErrorWidget(
+          errorMessage: state.errorMessage,
+        );
+      }
+
+      // Success + pagination + pagination failure
+      if (state is TopHeadLinesSuccess ||
+          state is TopHeadLinesPaginationLoading ||
+          state is TopHeadLinesPaginationFailure) {
+        return NewsListView(articles: articles);
+      }
+
+      // Default fallback
+      return NewsListView(articles: articles);
+    });
   }
 }
