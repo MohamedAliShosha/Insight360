@@ -46,7 +46,7 @@ class SplashViewBody extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 100),
+        const SizedBox(height: 50),
         ElevatedButton(
           onPressed: () {
             isLoggedInUser
