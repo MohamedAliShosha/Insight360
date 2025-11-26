@@ -7,5 +7,7 @@ abstract class HomeRepo {
     required String apiKey,
     required String country,
     required String category,
+    int pageNumber =
+        0, // 1 => Setting a default value for the first page "Pagination"
   });
 }
