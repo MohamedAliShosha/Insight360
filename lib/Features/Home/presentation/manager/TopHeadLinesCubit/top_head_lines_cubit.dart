@@ -16,14 +16,27 @@ class TopHeadLinesCubit extends Cubit<TopHeadLinesState> {
     required String apiKey,
     required String country,
     required String category,
+    int pageNumber = 1, // 3 => Setting a default value for the first page
   }) async {
-    emit(TopHeadLinesLoading());
+    if (pageNumber == 1) {
+      emit(TopHeadLinesLoading());
+    } else {
+      emit(TopHeadLinesPaginationLoading());
+    }
 
     var result = await homeRepo.getToHeadLines(
-        apiKey: apiKey, country: country, category: category);
+        pageNumber:
+            pageNumber, // 4 => passing the pageNumber to the pageNumber argument of the homeRepo method.
+        apiKey: apiKey,
+        country: country,
+        category: category);
 
     result.fold((failure) {
-      emit(TopHeadLinesError(errorMessage: failure.errorMessage));
+      if (pageNumber == 1) {
+        emit(TopHeadLinesFailure(errorMessage: failure.errorMessage));
+      } else {
+        emit(TopHeadLinesPaginationFailure(errorMessage: failure.errorMessage));
+      }
     }, (article) {
       emit(TopHeadLinesSuccess(articles: article));
     });
@@ -37,7 +50,7 @@ class TopHeadLinesCubit extends Cubit<TopHeadLinesState> {
         apiKey: Constants.apiKey, country: 'us', category: 'general');
     result.fold(
         (failure) =>
-            emit(TopHeadLinesError(errorMessage: failure.errorMessage)),
+            emit(TopHeadLinesFailure(errorMessage: failure.errorMessage)),
         (articles) {
       emit(
         TopHeadLinesSuccess(articles: articles),
