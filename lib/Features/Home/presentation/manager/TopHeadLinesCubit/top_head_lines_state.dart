@@ -11,12 +11,19 @@ final class TopHeadLinesInitial extends TopHeadLinesState {}
 
 final class TopHeadLinesLoading extends TopHeadLinesState {}
 
+final class TopHeadLinesPaginationLoading extends TopHeadLinesState {}
+
 final class TopHeadLinesSuccess extends TopHeadLinesState {
   final List<Article> articles;
   const TopHeadLinesSuccess({required this.articles});
 }
 
-final class TopHeadLinesError extends TopHeadLinesState {
+final class TopHeadLinesFailure extends TopHeadLinesState {
   final String errorMessage;
-  const TopHeadLinesError({required this.errorMessage});
+  const TopHeadLinesFailure({required this.errorMessage});
+}
+
+final class TopHeadLinesPaginationFailure extends TopHeadLinesState {
+  final String errorMessage;
+  const TopHeadLinesPaginationFailure({required this.errorMessage});
 }
