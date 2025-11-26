@@ -12,6 +12,8 @@ class HomeRepoImplement implements HomeRepo {
 
   @override
   Future<Either<Failures, List<Article>>> getToHeadLines({
+    int pageNumber =
+        1, // 2 => Setting a default value for the first page because this is the implementation of the homeRepo
     required String apiKey,
     required String country,
     required String category,
@@ -19,7 +21,7 @@ class HomeRepoImplement implements HomeRepo {
     try {
       final data = await apiService.get(
         endPoint:
-            'top-headlines?category=$category&country=$country&apiKey=$apiKey',
+            'top-headlines?category=$category&country=$country&apiKey=$apiKey&page=$pageNumber',
       );
 
       final articles = data['articles'] as List;
@@ -31,7 +33,11 @@ class HomeRepoImplement implements HomeRepo {
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
-      return Left(ServerFailure(e.toString()));
+      return Left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
   }
 }
