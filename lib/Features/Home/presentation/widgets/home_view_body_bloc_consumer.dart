@@ -23,42 +23,34 @@ class _HomeViewBodyBlocConsumerState extends State<HomeViewBodyBlocConsumer> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TopHeadLinesCubit, TopHeadLinesState>(
-        listener: (context, state) {
-      if (state is TopHeadLinesSuccess) {
-        // add the coming books to the books list
-        articles.addAll(state.articles);
-      }
+      listener: (context, state) {
+        if (state is TopHeadLinesSuccess) {
+          // add the coming books to the books list
+          articles.addAll(state.articles);
+        }
 
-      if (state is TopHeadLinesPaginationFailure) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          buildErrorSnackBar(state.errorMessage),
-        );
-      }
-    }, builder: (context, state) {
-      // Loading → show shimmer
-      if (state is TopHeadLinesLoading) {
+        if (state is TopHeadLinesPaginationFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            buildErrorSnackBar('There is no more books'),
+          );
+        }
+      },
+      builder: (context, state) {
+        if (state is TopHeadLinesSuccess ||
+            state is TopHeadLinesPaginationLoading ||
+            state is TopHeadLinesPaginationFailure) {
+          return NewsListView(
+            // load the new books added to the existing ones
+            articles: articles,
+          );
+        } else if (state is TopHeadLinesFailure) {
+          return CustomErrorWidget(errorMessage: state.errorMessage);
+        }
         return ListView.builder(
           itemCount: 20,
           itemBuilder: (_, __) => const NewsItemShimmer(),
         );
-      }
-
-      // Error
-      if (state is TopHeadLinesFailure) {
-        return CustomErrorWidget(
-          errorMessage: state.errorMessage,
-        );
-      }
-
-      // Success + pagination + pagination failure
-      if (state is TopHeadLinesSuccess ||
-          state is TopHeadLinesPaginationLoading ||
-          state is TopHeadLinesPaginationFailure) {
-        return NewsListView(articles: articles);
-      }
-
-      // Default fallback
-      return NewsListView(articles: articles);
-    });
+      },
+    );
   }
 }

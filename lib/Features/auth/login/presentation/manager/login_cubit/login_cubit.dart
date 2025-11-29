@@ -22,7 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
       (loginApiErrorModel) {
         emit(
           LoginFailure(
-            loginApiErrorModel as LoginApiErrorModel,
+            loginApiErrorModel,
           ),
         );
       },

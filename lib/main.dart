@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/core/utils/shared_pref_helper.dart';
 import 'package:news_app/core/utils/shared_pref_keys.dart';
+import 'package:news_app/core/utils/simple_bloc_observer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //TODO => Add user check method
@@ -44,6 +46,7 @@ class NewsApp extends StatelessWidget {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await checkIfUserIsLoggedIn();
+  Bloc.observer = SimpleBlocObserver();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   setUpServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();

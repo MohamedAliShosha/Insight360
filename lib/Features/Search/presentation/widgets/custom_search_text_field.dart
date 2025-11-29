@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
+import 'package:news_app/core/functions/build_error_snack_bar.dart';
 import 'package:news_app/core/utils/constants.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
@@ -13,6 +14,9 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTapOutside: (event) {
+        FocusScope.of(context).unfocus();
+      },
       style: const TextStyle(
         color: ColorsManager.kWhiteColor,
       ),
@@ -26,7 +30,7 @@ class CustomSearchTextField extends StatelessWidget {
                 .trim(); // trim used to remove leading/trailing spaces
             if (value.isEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Please enter a search term.')),
+                buildErrorSnackBar('Please enter a search term'),
               );
               return;
             }
