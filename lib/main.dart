@@ -10,13 +10,9 @@ import 'package:news_app/core/utils/shared_pref_keys.dart';
 import 'package:news_app/core/utils/simple_bloc_observer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//TODO => Add user check method
 Future<void> checkIfUserIsLoggedIn() async {
-  // Getting userToken and storing it in a variable
   final userToken =
       await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
-  // Check if the userToken is not null and not empty
-
   if (userToken != null && userToken.isNotEmpty) {
     isLoggedInUser = true;
   } else {
@@ -34,8 +30,58 @@ class NewsApp extends StatelessWidget {
         return HeroControllerScope.none(child: child!);
       },
       theme: ThemeData(
-        scaffoldBackgroundColor: ColorsManager.kWhiteColor,
+        scaffoldBackgroundColor: ColorsManager.kPrimaryBlue,
         fontFamily: GoogleFonts.inter().fontFamily,
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white70),
+          bodySmall: TextStyle(color: Colors.white60),
+          titleLarge: TextStyle(color: Colors.white),
+          titleMedium: TextStyle(color: Colors.white),
+          titleSmall: TextStyle(color: Colors.white),
+          headlineLarge: TextStyle(color: Colors.white),
+          headlineMedium: TextStyle(color: Colors.white),
+          headlineSmall: TextStyle(color: Colors.white),
+          labelLarge: TextStyle(color: Colors.white),
+          labelMedium: TextStyle(color: Colors.white70),
+          labelSmall: TextStyle(color: Colors.white60),
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: ColorsManager.kPrimaryBlue,
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.1),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white54),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white54),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            foregroundColor: ColorsManager.kPrimaryBlue,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.white,
+          ),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router, //

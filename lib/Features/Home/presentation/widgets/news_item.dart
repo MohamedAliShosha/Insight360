@@ -42,6 +42,7 @@ class NewsItem extends StatelessWidget {
             const SizedBox(width: 8),
             Expanded(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -49,7 +50,7 @@ class NewsItem extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: ColorsManager.kPrimaryBlue,
+                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
                     ),
@@ -70,7 +71,7 @@ class NewsItem extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: ColorsManager.kPrimaryBlue,
+                      color: Colors.white,
                     ),
                   ),
                 ],

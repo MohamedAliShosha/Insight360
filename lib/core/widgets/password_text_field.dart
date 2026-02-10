@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/widgets/app_text_form_field.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
 
 class PasswordTextField extends StatefulWidget {
   const PasswordTextField({
@@ -34,11 +33,11 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         child: obscureText
             ? const Icon(
                 Icons.visibility_off,
-                color: ColorsManager.kPrimaryBlue,
+                color: Colors.white,
               )
             : const Icon(
                 Icons.visibility,
-                color: ColorsManager.kPrimaryBlue,
+                color: Colors.white,
               ),
       ),
       keyboardType: TextInputType.visiblePassword,

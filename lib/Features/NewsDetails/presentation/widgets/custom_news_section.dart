@@ -14,25 +14,14 @@ class NewsAction extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // const Expanded(
-          //   child: CustomButton(
-          //     text: '19.99\$',
-          //     backgroundColor: Colors.white,
-          //     textColor: Colors.black,
-          //     borderRadius: BorderRadius.only(
-          //       topLeft: Radius.circular(16),
-          //       bottomLeft: Radius.circular(16),
-          //     ),
-          //   ),
-          // ),
           CustomButton(
             onPressed: () {
               launchCustomUrl(context, articleModel.url);
             },
             fontSize: 16,
             text: getText(articleModel),
-            backgroundColor: ColorsManager.kPrimaryBlue,
-            textColor: Colors.white,
+            backgroundColor: ColorsManager.kWhiteColor,
+            textColor: ColorsManager.kPrimaryBlue,
             borderRadius: const BorderRadius.all(
               Radius.circular(10),
             ),

@@ -14,47 +14,52 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onTapOutside: (event) {
-        FocusScope.of(context).unfocus();
-      },
-      style: const TextStyle(
-        color: ColorsManager.kWhiteColor,
-      ),
-      controller: _controller,
-      cursorColor: ColorsManager.kWhiteColor,
-      decoration: InputDecoration(
-        hintText: 'Search by Category',
-        suffixIcon: IconButton(
-          onPressed: () {
-            final value = _controller.text
-                .trim(); // trim used to remove leading/trailing spaces
-            if (value.isEmpty) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                buildErrorSnackBar('Please enter a search term'),
-              );
-              return;
-            }
-            context.read<SearchCubit>().getSearchedNews(
-                apiKey: Constants.apiKey, category: value, country: 'us');
-            _controller.clear(); // clear the text field after search
-          },
-          icon: const Icon(
-            Icons.search,
-            color: ColorsManager.kWhiteColor,
-          ),
-        ),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorsManager.kWhiteColor),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: ColorsManager.kWhiteColor),
-        ),
-        border: const OutlineInputBorder(),
-        labelText: 'Search',
-        labelStyle: const TextStyle(
+        onTapOutside: (event) {
+          FocusScope.of(context).unfocus();
+        },
+        style: const TextStyle(
           color: ColorsManager.kWhiteColor,
         ),
-      ),
-    );
+        controller: _controller,
+        cursorColor: ColorsManager.kWhiteColor,
+        decoration: InputDecoration(
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: ColorsManager.kWhiteColor),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: ColorsManager.kWhiteColor),
+          ),
+          border: const OutlineInputBorder(),
+          labelText: 'Search',
+          labelStyle: const TextStyle(
+            color: ColorsManager.kWhiteColor,
+          ),
+          hintText: 'Search by Category',
+          suffixIcon: Padding(
+            padding: const EdgeInsets.only(right: 2, top: 2, bottom: 2),
+            child: InkWell(
+              onTap: () {
+                final value = _controller.text
+                    .trim(); // trim used to remove leading/trailing spaces
+                if (value.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    buildErrorSnackBar('Please enter a search term'),
+                  );
+                  return;
+                }
+                context.read<SearchCubit>().getSearchedNews(
+                    apiKey: Constants.apiKey, category: value, country: 'us');
+                _controller.clear(); // clear the text field after search
+              },
+              child: CircleAvatar(
+                backgroundColor: ColorsManager.kGreyColor.withOpacity(0.2),
+                child: const Icon(
+                  Icons.search,
+                  color: ColorsManager.kWhiteColor,
+                ),
+              ),
+            ),
+          ),
+        ));
   }
 }

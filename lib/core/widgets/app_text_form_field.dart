@@ -3,7 +3,6 @@ import 'package:news_app/core/functions/build_enabled_border.dart';
 import 'package:news_app/core/functions/build_focused_border.dart';
 import 'package:news_app/core/utils/colors_manager.dart';
 
-// ignore: must_be_immutable
 class AppTextFormField extends StatefulWidget {
   const AppTextFormField(
       {super.key,
@@ -42,23 +41,22 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         },
         controller: widget.controller,
         style: const TextStyle(
-          color: ColorsManager.kPrimaryBlue,
+          color: Colors.white,
         ),
-        cursorColor: ColorsManager.kPrimaryBlue,
+        cursorColor: Colors.white,
         obscureText: widget.isObscureText,
         // Text form field contains validator that used to validate inputs
         validator: widget.validator,
         decoration: InputDecoration(
           suffixIcon: widget.suffixIcon,
           labelText: widget.labelText,
-          labelStyle:
-              const TextStyle(fontSize: 16, color: ColorsManager.kPrimaryBlue),
+          labelStyle: const TextStyle(fontSize: 16, color: Colors.white),
           hintText: widget.hintText,
           hintStyle: const TextStyle(
             color: ColorsManager.kLightGrey,
           ),
-          enabledBorder: buildEnabledBorder(color: ColorsManager.kPrimaryBlue),
-          focusedBorder: buildFocusedBorder(color: ColorsManager.kPrimaryBlue),
+          enabledBorder: buildEnabledBorder(color: Colors.white),
+          focusedBorder: buildFocusedBorder(color: Colors.white),
         ),
       ),
     );

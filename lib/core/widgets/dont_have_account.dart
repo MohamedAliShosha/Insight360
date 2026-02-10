@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
 
 class DontHaveAccount extends StatelessWidget {
   const DontHaveAccount({
@@ -13,10 +12,10 @@ class DontHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'don\'t have an account?',
           style: TextStyle(
-            color: ColorsManager.kPrimaryBlue,
+            color: Colors.grey.shade400,
           ),
         ),
         GestureDetector(
@@ -27,7 +26,7 @@ class DontHaveAccount extends StatelessWidget {
             'Sign Up',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: ColorsManager.kPrimaryBlue,
+              color: Colors.white,
             ),
           ),
         ),

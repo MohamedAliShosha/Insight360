@@ -20,8 +20,7 @@ class CustomRichText extends StatelessWidget {
           ),
           TextSpan(
             text: '360°',
-            style:
-                Styles.txtStyle24.copyWith(color: ColorsManager.kPrimaryBlue),
+            style: Styles.txtStyle24.copyWith(color: Colors.white),
           ),
         ],
       ),

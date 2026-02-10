@@ -54,7 +54,7 @@ class NewsDetailsViewBody extends StatelessWidget {
               style: const TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 18.93,
-                  color: ColorsManager.kPrimaryBlue),
+                  color: ColorsManager.kWhiteColor),
             ),
           ),
           Padding(
@@ -75,7 +75,7 @@ class NewsDetailsViewBody extends StatelessWidget {
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
-                  color: ColorsManager.kBlackColor),
+                  color: Colors.white),
             ),
           ),
           const SizedBox(

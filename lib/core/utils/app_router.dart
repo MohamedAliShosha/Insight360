@@ -7,7 +7,10 @@ import 'package:news_app/Features/auth/sign_up/data/repos/sign_up_repo.dart';
 import 'package:news_app/Features/auth/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:news_app/Features/auth/sign_up/presentation/views/sign_up_view.dart';
 import 'package:news_app/Features/Home/data/models/news_model/article.dart';
+import 'package:news_app/Features/Home/data/repos/home_repo_implement.dart';
+import 'package:news_app/Features/Home/presentation/manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
 import 'package:news_app/Features/Home/presentation/views/home_view.dart';
+import 'package:news_app/Features/MainView/presentation/views/main_view.dart';
 import 'package:news_app/Features/NewsDetails/presentation/views/news_details_view.dart';
 import 'package:news_app/Features/Search/data/repos/search_repo_implement.dart';
 import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
@@ -54,36 +57,46 @@ abstract class AppRouter {
           ),
         ),
       ),
-      GoRoute(
-        path: kHomeView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: HomeView(),
-        ),
-      ),
-      GoRoute(
-        path: kNewsDetailsView,
-        pageBuilder: (context, state) => NoTransitionPage(
-          child: NewsDetailsView(
-            article: state.extra as Article,
-          ),
-        ),
-      ),
-      GoRoute(
-        path: kSearchView,
-        pageBuilder: (context, state) => NoTransitionPage(
-          child: BlocProvider(
-            create: (context) => SearchCubit(
-              getIt<SearchRepoImplement>(),
+      ShellRoute(
+        builder: (context, state, child) => MainView(child: child),
+        routes: [
+          GoRoute(
+            path: kHomeView,
+            pageBuilder: (context, state) => NoTransitionPage(
+              child: BlocProvider(
+                create: (context) => TopHeadLinesCubit(
+                  getIt<HomeRepoImplement>(),
+                ),
+                child: const HomeView(),
+              ),
             ),
-            child: const SearchView(),
           ),
-        ),
-      ),
-      GoRoute(
-        path: kProfileView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: ProfileView(),
-        ),
+          GoRoute(
+            path: kNewsDetailsView,
+            pageBuilder: (context, state) => NoTransitionPage(
+              child: NewsDetailsView(
+                article: state.extra as Article,
+              ),
+            ),
+          ),
+          GoRoute(
+            path: kSearchView,
+            pageBuilder: (context, state) => NoTransitionPage(
+              child: BlocProvider(
+                create: (context) => SearchCubit(
+                  getIt<SearchRepoImplement>(),
+                ),
+                child: const SearchView(),
+              ),
+            ),
+          ),
+          GoRoute(
+            path: kProfileView,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: ProfileView(),
+            ),
+          ),
+        ],
       ),
     ],
   );

@@ -128,8 +128,8 @@ class _SignUpFormState extends State<SignUpForm> {
                     });
                   }
                 },
-                textColor: ColorsManager.kWhiteColor,
-                containerColor: ColorsManager.kPrimaryBlue,
+                textColor: ColorsManager.kPrimaryBlue,
+                containerColor: ColorsManager.kWhiteColor,
                 leftPadding: 70,
                 rightPadding: 70,
                 buttonTitle: 'Sign Up',
