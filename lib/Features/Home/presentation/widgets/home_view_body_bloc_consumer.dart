@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Home/presentation/manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
-import 'package:news_app/Features/Home/presentation/widgets/news_item_shimmer.dart';
-import 'package:news_app/Features/Home/presentation/widgets/news_list_view.dart';
-import 'package:news_app/core/functions/build_error_snack_bar.dart';
-import 'package:news_app/core/widgets/custom_error_widget.dart';
+import '../../data/models/news_model/article.dart';
+import '../manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
+import 'news_item_shimmer.dart';
+import 'news_list_view.dart';
+import '../../../../core/functions/snack_bar_function.dart';
+import '../../../../core/utils/colors_manager.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
 
 class HomeViewBodyBlocConsumer extends StatefulWidget {
   const HomeViewBodyBlocConsumer({
@@ -30,8 +31,15 @@ class _HomeViewBodyBlocConsumerState extends State<HomeViewBodyBlocConsumer> {
         }
 
         if (state is TopHeadLinesPaginationFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            buildErrorSnackBar('There is no more books'),
+          showCustomSnackBar(
+            context: context,
+            message: 'There is no more books',
+            backgroundColor: ColorsManager.kPrimaryColor,
+            duration: const Duration(seconds: 3),
+            textColor: ColorsManager.kPrimaryBlue,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            isCentered: true,
           );
         }
       },
