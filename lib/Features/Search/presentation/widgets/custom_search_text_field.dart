@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
-import 'package:news_app/core/functions/build_error_snack_bar.dart';
-import 'package:news_app/core/utils/constants.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
+import '../manager/SearchCubit/search_cubit.dart';
+import '../../../../core/functions/snack_bar_function.dart';
+import '../../../../core/utils/constants.dart';
+import '../../../../core/utils/colors_manager.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   CustomSearchTextField({
@@ -42,8 +42,15 @@ class CustomSearchTextField extends StatelessWidget {
                 final value = _controller.text
                     .trim(); // trim used to remove leading/trailing spaces
                 if (value.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    buildErrorSnackBar('Please enter a search term'),
+                  showCustomSnackBar(
+                    context: context,
+                    message: 'Please enter a search term',
+                    backgroundColor: ColorsManager.kPrimaryColor,
+                    duration: const Duration(seconds: 3),
+                    textColor: ColorsManager.kPrimaryBlue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    isCentered: true,
                   );
                   return;
                 }

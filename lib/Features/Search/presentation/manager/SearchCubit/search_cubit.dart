@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Search/data/repos/search_repo.dart';
+import '../../../../Home/data/models/news_model/article.dart';
+import '../../../data/repos/search_repo.dart';
 
 part 'search_state.dart';
 

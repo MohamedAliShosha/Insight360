@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/Features/Search/presentation/manager/SearchCubit/search_cubit.dart';
-import 'package:news_app/Features/Search/presentation/widgets/search_shimmer_item.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/widgets/custom_error_widget.dart';
+import '../manager/SearchCubit/search_cubit.dart';
+import 'search_shimmer_item.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/colors_manager.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
 
 class SearchedResultListView extends StatelessWidget {
   const SearchedResultListView({

@@ -1,28 +1,27 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Search/data/repos/search_repo.dart';
-import 'package:news_app/core/errors/failures.dart';
-import 'package:news_app/core/utils/api_service.dart';
+import '../../../Home/data/models/news_model/article.dart';
+import '../../../Home/data/services/news_service.dart';
+import 'search_repo.dart';
+import '../../../../core/errors/failures.dart';
 
 class SearchRepoImplement implements SearchRepo {
-  final ApiService apiService;
+  final NewsService newsService;
 
-  SearchRepoImplement(this.apiService);
+  SearchRepoImplement(this.newsService);
   @override
   Future<Either<Failures, List<Article>>> getSearchedNews(
       {required String apiKey,
       required String country,
       required String category}) async {
     try {
-      var data = await apiService.get(
-          endPoint:
-              'top-headlines?category=$category&country=$country&apiKey=$apiKey');
+      var response = await newsService.getTopHeadlines(
+        category: category,
+        country: country,
+        apiKey: apiKey,
+      );
 
-      final articles = data['articles'] as List;
-      final articlesList =
-          articles.map((item) => Article.fromJson(item)).toList();
-      return right(articlesList);
+      return right(response.articles);
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));

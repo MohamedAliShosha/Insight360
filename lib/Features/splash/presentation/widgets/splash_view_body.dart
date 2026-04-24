@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/utils/shared_pref_keys.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/colors_manager.dart';
+import '../../../../core/utils/shared_pref_keys.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});

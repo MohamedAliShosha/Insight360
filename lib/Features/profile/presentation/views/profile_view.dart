@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/Features/profile/presentation/widgets/error_dialog.dart';
-import 'package:news_app/Features/profile/presentation/widgets/user_info_row.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/utils/shared_pref_helper.dart';
-import 'package:news_app/core/utils/shared_pref_keys.dart';
+import '../widgets/error_dialog.dart';
+import '../widgets/user_info_row.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/colors_manager.dart';
+import '../../../../core/utils/shared_pref_helper.dart';
+import '../../../../core/utils/shared_pref_keys.dart';
 
 import '../widgets/custom_profile_circle_avatar.dart';
 
