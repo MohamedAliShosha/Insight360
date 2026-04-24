@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/utils/styles.dart';
+import '../utils/colors_manager.dart';
+import '../utils/styles.dart';
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText({

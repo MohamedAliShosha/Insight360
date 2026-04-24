@@ -1,7 +1,7 @@
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_api_error_model.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_request_body.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_response_model.dart';
-import 'package:news_app/Features/auth/sign_up/services/sign_up_service.dart';
+import '../models/sign_up_api_error_model.dart';
+import '../models/sign_up_request_body.dart';
+import '../models/sign_up_response_model.dart';
+import '../../services/sign_up_service.dart';
 
 import 'sign_up_repo.dart';
 import 'package:dartz/dartz.dart';

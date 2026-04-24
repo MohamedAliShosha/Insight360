@@ -14,7 +14,22 @@ SignUpResponseModel _$SignUpResponseModelFromJson(Map<String, dynamic> json) =>
       message: json['message'] as String,
     );
 
+Map<String, dynamic> _$SignUpResponseModelToJson(
+        SignUpResponseModel instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'data': instance.data,
+      'status': instance.status,
+      'code': instance.code,
+    };
+
 RegisterData _$RegisterDataFromJson(Map<String, dynamic> json) => RegisterData(
       token: json['token'] as String,
       username: json['username'] as String,
     );
+
+Map<String, dynamic> _$RegisterDataToJson(RegisterData instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'username': instance.username,
+    };

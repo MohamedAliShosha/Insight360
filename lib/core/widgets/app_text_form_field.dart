@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/functions/build_enabled_border.dart';
-import 'package:news_app/core/functions/build_focused_border.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
+import '../functions/build_enabled_border.dart';
+import '../functions/build_focused_border.dart';
+import '../utils/colors_manager.dart';
 
 class AppTextFormField extends StatefulWidget {
   const AppTextFormField(

@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_api_error_model.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_request_body.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_response_model.dart';
-import 'package:news_app/Features/auth/sign_up/data/repos/sign_up_repo.dart';
-import 'package:news_app/core/utils/shared_pref_helper.dart';
-import 'package:news_app/core/utils/shared_pref_keys.dart';
+import '../../../data/models/sign_up_api_error_model.dart';
+import '../../../data/models/sign_up_request_body.dart';
+import '../../../data/models/sign_up_response_model.dart';
+import '../../../data/repos/sign_up_repo.dart';
+import '../../../../../../core/utils/shared_pref_helper.dart';
+import '../../../../../../core/utils/shared_pref_keys.dart';
 
 part 'sign_up_states.dart';
 
