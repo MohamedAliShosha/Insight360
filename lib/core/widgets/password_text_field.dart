@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/widgets/app_text_form_field.dart';
+import 'app_text_form_field.dart';
 
 class PasswordTextField extends StatefulWidget {
   const PasswordTextField({

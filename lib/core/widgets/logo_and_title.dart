@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/widgets/custom_rich_text.dart';
+import 'custom_rich_text.dart';
 
 class LogoAndTitle extends StatelessWidget {
   const LogoAndTitle({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/auth/login/presentation/widgets/login_form.dart';
-import 'package:news_app/core/widgets/logo_and_title.dart';
-import 'package:news_app/core/widgets/dont_have_account.dart';
+import 'login_form.dart';
+import '../../../../../core/widgets/logo_and_title.dart';
+import '../../../../../core/widgets/dont_have_account.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});

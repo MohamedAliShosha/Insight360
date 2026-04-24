@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/auth/login/data/models/login_api_error_model.dart';
-import 'package:news_app/core/utils/shared_pref_helper.dart';
-import 'package:news_app/core/utils/shared_pref_keys.dart';
+import '../../../data/models/login_api_error_model.dart';
+import '../../../../../../core/utils/shared_pref_helper.dart';
+import '../../../../../../core/utils/shared_pref_keys.dart';
 
 import '../../../data/models/login_request_body.dart';
 import '../../../data/models/login_response.dart';

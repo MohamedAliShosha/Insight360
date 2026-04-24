@@ -1,4 +1,4 @@
-import 'package:news_app/Features/auth/login/services/login_service.dart';
+import '../../services/login_service.dart';
 
 import '../models/login_api_error_model.dart';
 

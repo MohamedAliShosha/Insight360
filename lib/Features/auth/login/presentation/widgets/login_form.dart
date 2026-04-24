@@ -1,13 +1,11 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/auth/login/data/models/login_request_body.dart';
-import 'package:news_app/Features/auth/login/presentation/manager/login_cubit/login_cubit.dart';
-import 'package:news_app/core/widgets/app_button.dart';
-import 'package:news_app/core/widgets/app_text_form_field.dart';
-import 'package:news_app/Features/auth/login/presentation/widgets/login_bloc_listener.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/widgets/password_text_field.dart';
+import '../../data/models/login_request_body.dart';
+import '../manager/login_cubit/login_cubit.dart';
+import '../../../../../core/widgets/app_button.dart';
+import 'login_bloc_listener.dart';
+import '../../../../../core/utils/colors_manager.dart';
+import '../../../../../core/widgets/form_fields.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -36,26 +34,16 @@ class _LoginFormState extends State<LoginForm> {
       key: formKey,
       child: Column(
         children: [
-          AppTextFormField(
-            validator: (data) {
-              if (data == null || data.isEmpty) {
-                return 'This field is required';
-              }
-              if (!EmailValidator.validate(data)) {
-                return 'Please enter a valid email address';
-              }
-              return null;
-            },
-            keyboardType: TextInputType.emailAddress,
+          EmailFormField(
             controller: emailController,
-            labelText: 'Email',
             hintText: 'Enter your Email',
+            labelText: 'Email',
           ),
           const SizedBox(
             height: 16,
           ),
-          PasswordTextField(
-            passwordController: passwordController,
+          PasswordFormField(
+            controller: passwordController,
             hintText: 'Enter your password',
             labelText: 'Password',
           ),
