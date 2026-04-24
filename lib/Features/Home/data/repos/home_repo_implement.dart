@@ -1,14 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Home/data/repos/home_repo.dart';
-import 'package:news_app/core/errors/failures.dart';
-import 'package:news_app/core/utils/api_service.dart';
+import '../models/news_model/article.dart';
+import 'home_repo.dart';
+import '../../../../core/errors/failures.dart';
+import '../services/home_service.dart';
 
 class HomeRepoImplement implements HomeRepo {
-  final ApiService apiService;
+  final HomeService homeService;
 
-  HomeRepoImplement(this.apiService);
+  HomeRepoImplement(this.homeService);
 
   @override
   Future<Either<Failures, List<Article>>> getToHeadLines({
@@ -19,14 +19,14 @@ class HomeRepoImplement implements HomeRepo {
     required String category,
   }) async {
     try {
-      final data = await apiService.get(
-        endPoint:
-            'top-headlines?category=$category&country=$country&apiKey=$apiKey&page=$pageNumber',
+      final newsResponse = await homeService.getTopHeadlines(
+        category: category,
+        country: country,
+        apiKey: apiKey,
+        page: pageNumber,
       );
 
-      final articles = data['articles'] as List;
-      final articlesList =
-          articles.map((item) => Article.fromJson(item)).toList();
+      final articlesList = newsResponse.articles;
 
       return Right(articlesList);
     } catch (e) {
