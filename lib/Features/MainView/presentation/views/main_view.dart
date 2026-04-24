@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/colors_manager.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key, required this.child});

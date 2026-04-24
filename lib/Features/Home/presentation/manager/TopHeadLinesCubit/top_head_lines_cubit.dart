@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Home/data/repos/home_repo.dart';
-import 'package:news_app/core/utils/constants.dart';
+
+import '../../../../../core/utils/constants.dart';
+import '../../../data/models/news_model/article.dart';
+import '../../../data/repos/home_repo.dart';
+
 part 'top_head_lines_state.dart';
 
 class TopHeadLinesCubit extends Cubit<TopHeadLinesState> {

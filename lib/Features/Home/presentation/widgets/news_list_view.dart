@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/Home/presentation/manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
-import 'package:news_app/Features/Home/presentation/widgets/news_item.dart';
-import 'package:news_app/core/utils/constants.dart';
+import '../../data/models/news_model/article.dart';
+import '../manager/TopHeadLinesCubit/top_head_lines_cubit.dart';
+import 'news_item.dart';
+import '../../../../core/utils/constants.dart';
 
 class NewsListView extends StatefulWidget {
   final List<Article> articles;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/Home/data/models/news_model/article.dart';
-import 'package:news_app/Features/NewsDetails/presentation/widgets/custom_button.dart';
-import 'package:news_app/core/functions/launch_url_function.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
+import '../../../Home/data/models/news_model/article.dart';
+import 'custom_button.dart';
+import '../../../../core/functions/launch_url_function.dart';
+import '../../../../core/utils/colors_manager.dart';
 
 class NewsAction extends StatelessWidget {
   const NewsAction({super.key, required this.articleModel});
