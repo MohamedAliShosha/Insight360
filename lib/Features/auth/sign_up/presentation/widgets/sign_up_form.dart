@@ -1,13 +1,11 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/Features/auth/sign_up/data/models/sign_up_request_body.dart';
-import 'package:news_app/Features/auth/sign_up/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:news_app/Features/auth/sign_up/presentation/widgets/sign_up_bloc_listener.dart';
-import 'package:news_app/core/utils/colors_manager.dart';
-import 'package:news_app/core/widgets/app_text_form_field.dart';
-import 'package:news_app/core/widgets/app_button.dart';
-import 'package:news_app/core/widgets/password_text_field.dart';
+import '../../data/models/sign_up_request_body.dart';
+import '../manager/sign_up_cubit/sign_up_cubit.dart';
+import 'sign_up_bloc_listener.dart';
+import '../../../../../core/utils/colors_manager.dart';
+import '../../../../../core/widgets/app_button.dart';
+import '../../../../../core/widgets/form_fields.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -44,61 +42,34 @@ class _SignUpFormState extends State<SignUpForm> {
       key: formKey,
       child: Column(
         children: [
-          AppTextFormField(
-            keyboardType: TextInputType.name,
-            validator: (data) {
-              if (data == null || data.isEmpty) {
-                return 'This field is required';
-              }
-              if (data.length < 3) {
-                return 'Name must be at least 3 characters';
-              }
-              return null;
-            },
+          NameFormField(
             controller: nameController,
-            labelText: 'Name',
             hintText: 'Enter your name',
+            labelText: 'Name',
           ),
           const SizedBox(height: 16),
-          AppTextFormField(
-            keyboardType: TextInputType.emailAddress,
-            validator: (data) {
-              if (data == null || data.isEmpty) {
-                return 'This field is required';
-              }
-              if (!EmailValidator.validate(data)) {
-                return 'Please enter a valid email address';
-              }
-              return null;
-            },
+          EmailFormField(
             controller: emailController,
-            labelText: 'Email',
             hintText: 'Enter your Email',
+            labelText: 'Email',
           ),
           const SizedBox(height: 16),
-          AppTextFormField(
-            keyboardType: TextInputType.phone,
-            validator: (data) {
-              if (data == null || data.isEmpty) {
-                return 'This field is required';
-              }
-              return null;
-            },
+          PhoneFormField(
             controller: phoneController,
-            labelText: 'Phone Number',
             hintText: 'Enter your phone number',
+            labelText: 'Phone Number',
           ),
           const SizedBox(height: 16),
-          PasswordTextField(
-            passwordController: passwordController,
+          PasswordFormField(
+            controller: passwordController,
             hintText: 'Enter your Password',
             labelText: 'Password',
           ),
           const SizedBox(
             height: 16,
           ),
-          PasswordTextField(
-            passwordController: passwordConfirmationController,
+          PasswordFormField(
+            controller: passwordConfirmationController,
             hintText: 'Confirm your password',
             labelText: 'Password Confirmation',
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/Features/auth/sign_up/presentation/widgets/already_have_account.dart';
-import 'package:news_app/core/widgets/logo_and_title.dart';
-import 'package:news_app/Features/auth/sign_up/presentation/widgets/sign_up_form.dart';
+import 'already_have_account.dart';
+import '../../../../../core/widgets/logo_and_title.dart';
+import 'sign_up_form.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
