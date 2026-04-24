@@ -9,8 +9,8 @@ Future<void> launchCustomUrl(context, String? url) async {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {
-      showSnackBar(
-        context,
+      showCustomSnackBar(
+        context: context,
         message: 'Cannot launch $url',
       );
     }
